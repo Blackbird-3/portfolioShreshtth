@@ -1,171 +1,90 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 /*
-  Locks, matched to Lynn Fisher v.XIX screenshots.
-  - Paper beige, near-black ink. Dark mode is near-black with red ink.
-  - Sharp corners.
-  - A narrow centered column with wide empty margin.
-  - Cormorant Garamond for the name and chapter titles. Newsreader to read.
+  Blend.
+  Charlie (Refero 34aa811f): obsidian #000000 canvas, bone white #ffffff type,
+  one alarm-red #ed1c24 wall, display tracking crushed, body 19px.
+  Doug-Alves: hairline rules and a name-plus-figure work list, no cards.
+  Ash gray is unused. It fails contrast on black.
 */
 
 :root {
-  --bg: #e4e2d7;
-  --ink: #161616;
-  --bg-deep: #111111;
-  --ink-hot: #ff3b3b;
-  --figure: #7a4a16;
-  color-scheme: light;
-}
-
-.dark {
-  --bg: var(--bg-deep);
-  --ink: var(--ink-hot);
-  --figure: var(--ink-hot);
+  --obsidian: #000000;
+  --bone-white: #ffffff;
+  --alarm-red: #ed1c24;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-serif: var(--font-newsreader), "Iowan Old Style", Palatino, "Palatino Linotype", serif;
-  --font-display: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
-  --color-bg: var(--bg);
-  --color-ink: var(--ink);
-  --color-figure: var(--figure);
+  --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-antonio), Antonio, "Arial Narrow", Impact, sans-serif;
+  --color-obsidian: var(--obsidian);
+  --color-bone: var(--bone-white);
+  --color-alarm: var(--alarm-red);
 }
 
-html {
-  background: var(--bg);
-  color-scheme: light dark;
+html,
+body {
+  background: var(--obsidian);
+  color: var(--bone-white);
 }
 
 body {
-  background-color: var(--bg);
-  background-image: url("/paper.svg");
-  background-repeat: repeat;
-  background-size: 420px auto;
-  color: var(--ink);
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  line-height: 1.55;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.32;
   overflow-x: clip;
   text-rendering: optimizeLegibility;
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.dark body {
-  background-image: url("/paper-dark.svg");
 }
 
 ::selection {
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--alarm-red);
+  color: var(--obsidian);
 }
 
 a,
 button {
   touch-action: manipulation;
   color: inherit;
-  -webkit-tap-highlight-color: color-mix(in srgb, var(--ink) 24%, transparent);
 }
 
 button,
-a,
 img {
   border-radius: 0;
 }
 
-.folio {
-  width: min(32rem, calc(100% - 2.4rem));
-  margin-inline: auto;
-}
-
-.folio-cards {
-  width: min(36rem, calc(100% - 2.4rem));
-}
-
-.home-name {
+.masthead {
   font-family: var(--font-display);
-  font-size: clamp(3.15rem, 10.5vw, 5.15rem);
-  font-weight: 600;
-  line-height: 0.82;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  font-feature-settings: "liga" 0;
-}
-
-.home-role {
-  margin-top: 0.9em;
-  font-size: 1.35rem;
-  line-height: 1.3;
-}
-
-.chapter-num {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-}
-
-.chapter-title {
-  margin-top: 0.85rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 8vw, 3.4rem);
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: clamp(4.75rem, 26vw, 7.25rem);
+  line-height: 0.72;
+  letter-spacing: -0.07em;
   text-transform: uppercase;
 }
 
-.index-link {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  font-size: 0.92rem;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: transform 120ms ease;
-}
-
-.index-link:hover {
-  transform: scale(1.04);
-}
-
-.index-link:active {
-  transform: translateY(1px);
-}
-
-.index-dots {
-  flex: 1;
-  height: 0.7em;
-  background-image: radial-gradient(circle, currentColor 20%, transparent 22%);
-  background-size: 0.52em 0.52em;
-  background-repeat: space no-repeat;
-  background-position: center;
-}
-
-.about-copy p {
-  margin-top: 1.15em;
-}
-
-.about-copy p:first-child {
-  margin-top: 0;
-}
-
-.about-copy p:first-child::first-letter {
-  float: left;
-  margin: 0.06em 0.08em 0 0;
-  font-family: var(--font-display);
-  font-size: 3.15rem;
-  font-weight: 600;
-  line-height: 0.8;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .index-link,
-  .index-link:hover,
-  .index-link:active {
-    transform: none;
-    transition: none;
+@media (min-width: 900px) {
+  .masthead {
+    font-size: 20.5vw;
+    line-height: 0.74;
+    letter-spacing: -0.07em;
   }
+}
+
+.project-name {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.project-figure {
+  font-weight: 400;
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.rule {
+  border-color: var(--bone-white);
 }

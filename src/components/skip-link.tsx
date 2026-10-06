@@ -5,7 +5,7 @@ export function SkipLink() {
   return (
     <a
       href="#content"
-      className={`sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-bg ${focusRing}`}
+      className={`sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-bone focus:px-4 focus:py-2 focus:text-[19px] focus:text-obsidian ${focusRing}`}
       style={{ zIndex: zIndex.skip }}
     >
       Skip to content

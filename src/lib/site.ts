@@ -1,11 +1,12 @@
 /**
- * Reading this as: a personal portfolio for hiring managers. Lynn Fisher's
- * paper index for the shell. Mahnoor Rana's proof card for the three pieces.
+ * Reading this as: a personal portfolio for hiring managers.
+ * Color and scale from Charlie Le Maignan on Refero (style 34aa811f):
+ * obsidian #000000, bone white #ffffff, one alarm red #ed1c24 wall.
+ * Work list from Doug-Alves: a name, one figure, fine print, hairline rules.
  *
- * Dials: DESIGN_VARIANCE 5, MOTION_INTENSITY 5, VISUAL_DENSITY 2.
- * Locks: paper beige, near-black ink, red ink in the dark, one bronze figure,
- * sharp corners.
- * Type: Cormorant Garamond for the name, titles, and figures. Newsreader to read.
+ * Dials: DESIGN_VARIANCE 8, MOTION_INTENSITY 2, VISUAL_DENSITY 3.
+ * Display: Antonio (Brasparz stand-in) at poster scale.
+ * Body: Inter 19px, the Neue Haas stand-in.
  *
  * Facts come from the career export. Do not add metrics that are not in
  * that export. Do not link https://shreshtth.me.
@@ -13,7 +14,6 @@
 
 export const site = {
   name: "Shreshtth Kumar Agarwaal",
-  shortName: "Shreshtth",
   displayLines: ["Shreshtth", "Kumar", "Agarwaal"] as const,
   roleLine: "AI engineer · master’s student",
   email: "agarwalshreshth3@gmail.com",
@@ -21,26 +21,18 @@ export const site = {
   phoneHref: "tel:+4915123606101",
   linkedin: "https://www.linkedin.com/in/shreshtth-kumar-agarwaal/",
   github: "https://github.com/Blackbird-3",
-  edition: "v. I",
 } as const;
 
-export const index = [
-  { href: "/work", label: "Work", numeral: "I" },
-  { href: "/about", label: "About", numeral: "II" },
-] as const;
-
 export type Piece = {
-  index: string;
   title: string;
   sentence: string;
   figure?: { value: string; label: string };
   stack: string[];
 };
 
-/** Three cards. One recorded figure each, except EduQuery, which has none. */
+/** Three pieces. One recorded figure each, except EduQuery, which has none. */
 export const pieces: Piece[] = [
   {
-    index: "01",
     title: "Enterprise AI Voice",
     sentence:
       "A production voice platform for customer calls, with latency under 500 ms.",
@@ -48,14 +40,12 @@ export const pieces: Piece[] = [
     stack: ["Python", "FastAPI", "LiveKit", "Gemini"],
   },
   {
-    index: "02",
     title: "COVID-19 Detection",
     sentence: "Chest X-ray classification with Grad-CAM explanations.",
     figure: { value: "20,000+", label: "chest X-ray images" },
     stack: ["Python", "Grad-CAM", "Computer Vision"],
   },
   {
-    index: "03",
     title: "EduQuery",
     sentence: "Questions answered from university policy documents.",
     stack: ["Flask", "React", "Pinecone", "Hugging Face"],

@@ -9,16 +9,14 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <main id="content" className="flex min-h-[100dvh] flex-col justify-center">
-      <div className="folio">
-        <h1 className="font-display text-5xl leading-[0.95] font-semibold tracking-[-0.04em]">
-          Something broke.
-        </h1>
-        <p className="mt-4 text-lg">Try loading the page again.</p>
-        <button type="button" className={`${buttonPrimary} mt-8`} onClick={() => reset()}>
-          Try again
-        </button>
-      </div>
+    <main id="content" className="flex min-h-[100dvh] flex-col justify-end bg-obsidian px-5 pb-[50px] text-bone sm:px-8">
+      <h1 className="font-display text-[clamp(4rem,12vw,9rem)] leading-[0.8] font-normal tracking-[-0.06em] text-bone uppercase">
+        Something broke.
+      </h1>
+      <p className="mt-[20px] max-w-[36rem] text-[19px] leading-[1.32]">Try loading the page again.</p>
+      <button type="button" className={`${buttonPrimary} mt-8`} onClick={() => reset()}>
+        Try again
+      </button>
     </main>
   );
 }
