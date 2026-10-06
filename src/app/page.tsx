@@ -14,7 +14,7 @@ export default function Home() {
           >
             {site.shortName}
           </h1>
-          <p className="mx-auto mt-5 max-w-[28ch] text-lg leading-snug text-balance">
+          <p className="mx-auto mt-5 text-[1.05rem] leading-snug text-balance">
             {site.roleLine}
           </p>
         </header>
