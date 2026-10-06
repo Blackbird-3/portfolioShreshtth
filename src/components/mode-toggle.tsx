@@ -10,7 +10,7 @@ export function ModeToggle() {
   return (
     <button
       type="button"
-      className={`mx-auto mt-6 flex h-11 w-11 items-center justify-center ${focusRing}`}
+      className={`mx-auto mt-3 flex h-11 w-11 items-center justify-center ${focusRing}`}
       aria-label="Switch color mode"
       onClick={() => {
         const dark = document.documentElement.classList.contains("dark");

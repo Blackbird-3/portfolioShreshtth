@@ -9,7 +9,13 @@ import { useEffect, useRef } from "react";
  * with cubic-bezier(0.175, 0.885, 0.12, 1.775). Off under reduced motion
  * and under 500px.
  */
-export function ScaleColumn({ children }: { children: React.ReactNode }) {
+export function ScaleColumn({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -87,7 +93,7 @@ export function ScaleColumn({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div ref={ref} className="folio">
+    <div ref={ref} className={`folio ${className}`}>
       {children}
     </div>
   );

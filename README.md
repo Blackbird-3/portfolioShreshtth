@@ -1,10 +1,10 @@
 # Shreshtth Kumar Agarwaal
 
-A short personal portfolio. The page is a narrow column: the name, one line, contact, and three pieces of work.
+A short personal site, set like Lynn Fisher's paper index. The homepage is a name, one line, and a dotted list. Work is three picture plates. About is a short note.
 
-Bricolage Grotesque is the name and the proof figures. Newsreader is the reading face. Light mode is beige paper and near-black ink. Dark mode is near-black and red.
+Cormorant Garamond carries the name and the chapter titles. Newsreader is the reading face. Light mode is beige paper and near-black ink. Dark mode is near-black and red.
 
-The column stretches when the window resizes, then springs back. That is the only signature motion.
+The column stretches when the window resizes, then springs back.
 
 ## Run locally
 
@@ -22,6 +22,6 @@ npm start
 
 ## Edit the facts
 
-Public copy lives in `src/lib/site.ts`. The figures on the page are the 35% shorter call handling, the voice latency under 500 ms, and the 20,000+ chest X-rays. EduQuery has no recorded percentage, so none is shown.
+Public copy lives in `src/lib/site.ts`. The only figures on the site are 35% shorter call handling and 20,000+ chest X-rays. EduQuery has no recorded percentage, so none is shown.
 
 Do not link to shreshtth.me.

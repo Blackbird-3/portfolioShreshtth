@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Newsreader } from "next/font/google";
+import { Cormorant_Garamond, Newsreader } from "next/font/google";
 import { SkipLink } from "@/components/skip-link";
 import { ThemeColor, ThemeProvider } from "@/components/theme-provider";
-import { zIndex } from "@/lib/z-index";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  weight: ["500", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -19,12 +19,12 @@ const serif = Newsreader({
   display: "swap",
 });
 
-const description = `${site.name}. ${site.roleLine}.`;
+const description = `${site.name}. AI engineer studying in Amberg.`;
 
 export const metadata: Metadata = {
   title: {
     default: site.name,
-    template: `%s`,
+    template: `%s | Shreshtth`,
   },
   description,
   authors: [{ name: site.name, url: site.linkedin }],
@@ -73,7 +73,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-[100dvh] bg-bg font-serif text-ink antialiased">
         <ThemeProvider>
           <ThemeColor />
-          <div aria-hidden className="grain" style={{ zIndex: zIndex.grain }} />
           <SkipLink />
           {children}
         </ThemeProvider>
