@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { PageFoot } from "@/components/page-foot";
 import { ScaleColumn } from "@/components/scale-column";
 import { pieces } from "@/lib/site";
@@ -12,29 +11,37 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <main id="content">
-      <ScaleColumn className="my-12 sm:my-16">
+      <ScaleColumn className="folio-cards my-12 sm:my-16">
         <header className="text-center">
           <p className="chapter-num">I</p>
           <h1 className="chapter-title">Work</h1>
         </header>
-        <ul className="mt-10 grid gap-10">
+        <ol className="mt-10 grid gap-6">
           {pieces.map((piece) => (
-            <li key={piece.title}>
-              <Image
-                src={piece.image}
-                alt={piece.alt}
-                width={1150}
-                height={700}
-                unoptimized
-                className="block h-auto w-full border border-ink"
-              />
-              <div className="mt-2 flex items-baseline justify-between gap-4 text-[0.78rem] leading-snug">
-                <span className="font-semibold tracking-[0.04em] uppercase">{piece.title}</span>
-                {piece.proof ? <span className="shrink-0 text-right">{piece.proof}</span> : null}
-              </div>
+            <li key={piece.title} className="border border-ink/30 px-5 py-5">
+              <p className="text-sm">{piece.index}</p>
+              <h2 className="mt-3 font-display text-[1.85rem] leading-none font-medium">
+                {piece.title}
+              </h2>
+              <p className="mt-3 max-w-[42ch] text-base leading-relaxed">{piece.sentence}</p>
+              {piece.figure ? (
+                <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-ink/25 pt-4">
+                  <span className="font-display text-5xl leading-none font-medium text-figure">
+                    {piece.figure.value}
+                  </span>
+                  <span className="text-sm text-figure">{piece.figure.label}</span>
+                </p>
+              ) : null}
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {piece.stack.map((item) => (
+                  <li key={item} className="border border-ink/35 px-2 py-0.5 text-sm leading-6">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
-        </ul>
+        </ol>
         <PageFoot />
       </ScaleColumn>
     </main>

@@ -1,6 +1,6 @@
 # Shreshtth Kumar Agarwaal
 
-A short personal site, set like Lynn Fisher's paper index. The homepage is a name, one line, and a dotted list. Work is three picture plates. About is a short note.
+A short personal site. The homepage is Lynn Fisher's paper index: a name, one line, and a dotted list. Work is three proof cards. About is a short note.
 
 Cormorant Garamond carries the name and the chapter titles. Newsreader is the reading face. Light mode is beige paper and near-black ink. Dark mode is near-black and red.
 

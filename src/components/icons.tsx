@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "@phosphor-icons/react";
+import { ArrowUpRight, Moon, Sun } from "@phosphor-icons/react";
 
 const shared = {
   size: 22,
@@ -14,4 +14,8 @@ export function IconSun() {
 
 export function IconMoon() {
   return <Moon {...shared} className="dark:hidden" />;
+}
+
+export function IconArrowUpRight() {
+  return <ArrowUpRight {...shared} size={16} />;
 }

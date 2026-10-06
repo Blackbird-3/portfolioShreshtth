@@ -15,12 +15,14 @@
   --ink: #161616;
   --bg-deep: #111111;
   --ink-hot: #ff3b3b;
+  --figure: #7a4a16;
   color-scheme: light;
 }
 
 .dark {
   --bg: var(--bg-deep);
   --ink: var(--ink-hot);
+  --figure: var(--ink-hot);
   color-scheme: dark;
 }
 
@@ -29,6 +31,7 @@
   --font-display: var(--font-cormorant), "Palatino Linotype", Palatino, serif;
   --color-bg: var(--bg);
   --color-ink: var(--ink);
+  --color-figure: var(--figure);
 }
 
 html {
@@ -75,6 +78,10 @@ img {
 .folio {
   width: min(32rem, calc(100% - 2.4rem));
   margin-inline: auto;
+}
+
+.folio-cards {
+  width: min(36rem, calc(100% - 2.4rem));
 }
 
 .home-name {
