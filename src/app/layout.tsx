@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, IBM_Plex_Mono, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader, SkipLink } from "@/components/site-header";
 import { ThemeColor, ThemeProvider } from "@/components/theme-provider";
@@ -7,21 +7,31 @@ import { zIndex } from "@/lib/z-index";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const geist = Geist({
+const display = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-geist",
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const sans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-source",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex",
   display: "swap",
 });
 
 const description =
-  "Shreshtth Kumar Agarwaal. Voice platform cut average call handling by 35%. M.Sc. student in Artificial Intelligence for Industrial Applications at OTH Amberg-Weiden.";
+  "Shreshtth Kumar Agarwaal, master's student at OTH Amberg-Weiden. Voice, audit, and healthcare AI, with the figures recorded for that work.";
 
 export const metadata: Metadata = {
   title: {
@@ -40,8 +50,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e6eee8" },
-    { media: "(prefers-color-scheme: dark)", color: "#101613" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f4f0" },
+    { media: "(prefers-color-scheme: dark)", color: "#121614" },
   ],
   colorScheme: "light dark",
 };
@@ -71,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-[100dvh] bg-bg font-sans text-ink antialiased">
         <ThemeProvider>

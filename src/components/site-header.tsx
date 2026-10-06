@@ -35,52 +35,52 @@ export function SiteHeader() {
       style={{ zIndex: zIndex.header }}
     >
       <div className="gutter">
-        <div className="shell flex h-16 items-center justify-between gap-4">
-        <a
-          href="#top"
-          translate="no"
-          className={`min-w-0 truncate text-[13px] font-medium tracking-tight text-ink sm:text-sm ${focusRing}`}
-        >
-          {site.shortName}
-        </a>
-
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Page">
-          {nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`inline-flex h-11 items-center px-3 text-sm whitespace-nowrap text-ink transition-colors duration-200 hover:text-accent ${focusRing}`}
-            >
-              {item.label}
-            </a>
-          ))}
-          <ThemeToggle
-            onToggle={() => {
-              const dark = document.documentElement.classList.contains("dark");
-              setTheme(dark ? "light" : "dark");
-            }}
-          />
-        </nav>
-
-        <div className="flex items-center gap-1 lg:hidden">
-          <ThemeToggle
-            onToggle={() => {
-              const dark = document.documentElement.classList.contains("dark");
-              setTheme(dark ? "light" : "dark");
-            }}
-          />
-          <button
-            ref={menuButtonRef}
-            type="button"
-            className={`inline-flex h-11 w-11 items-center justify-center text-ink ${focusRing}`}
-            aria-expanded={open}
-            aria-controls={menuId}
-            onClick={() => setOpen((value) => !value)}
+        <div className="shell flex h-14 items-center justify-between gap-4">
+          <a
+            href="#top"
+            translate="no"
+            className={`font-display min-w-0 truncate text-2xl leading-none font-medium italic ${focusRing}`}
           >
-            {open ? <IconClose /> : <IconList />}
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          </button>
-        </div>
+            {site.shortName}
+          </a>
+
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Page">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`inline-flex h-10 items-center px-2.5 text-sm whitespace-nowrap text-ink transition-colors duration-200 hover:text-accent ${focusRing}`}
+              >
+                {item.label}
+              </a>
+            ))}
+            <ThemeToggle
+              onToggle={() => {
+                const dark = document.documentElement.classList.contains("dark");
+                setTheme(dark ? "light" : "dark");
+              }}
+            />
+          </nav>
+
+          <div className="flex items-center gap-1 lg:hidden">
+            <ThemeToggle
+              onToggle={() => {
+                const dark = document.documentElement.classList.contains("dark");
+                setTheme(dark ? "light" : "dark");
+              }}
+            />
+            <button
+              ref={menuButtonRef}
+              type="button"
+              className={`inline-flex h-11 w-11 items-center justify-center text-ink ${focusRing}`}
+              aria-expanded={open}
+              aria-controls={menuId}
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? <IconClose /> : <IconList />}
+              <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -99,7 +99,7 @@ export function SiteHeader() {
                 <a
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={item.href}
-                  className={`flex h-12 items-center text-base text-ink ${focusRing}`}
+                  className={`flex h-12 items-center font-display text-3xl italic ${focusRing}`}
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
@@ -131,7 +131,7 @@ export function SkipLink() {
   return (
     <a
       href="#content"
-      className={`sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-on-accent ${focusRing}`}
+      className={`sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-bg ${focusRing}`}
       style={{ zIndex: zIndex.skip }}
     >
       Skip to content

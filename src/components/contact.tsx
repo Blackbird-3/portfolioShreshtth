@@ -1,60 +1,44 @@
 import { IconArrowUpRight } from "@/components/icons";
-import { Reveal } from "@/components/reveal";
 import { site } from "@/lib/site";
-import { focusRing } from "@/lib/styles";
+import { chapterTitle, focusRing } from "@/lib/styles";
 
-const linkClass = `inline-flex items-center gap-2 rounded-[12px] text-2xl font-medium tracking-tight text-ink transition-colors duration-200 hover:text-accent sm:text-3xl ${focusRing}`;
+const linkClass = `inline-flex items-center gap-2 text-xl leading-snug text-ink underline decoration-line underline-offset-[0.18em] transition-colors duration-200 hover:text-accent sm:text-2xl ${focusRing}`;
 
 export function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-raised py-16 md:py-24">
-      <div className="gutter">
-        <Reveal className="shell">
-          <h2
-            id="contact-heading"
-            className="text-3xl font-medium tracking-tight text-balance md:text-5xl"
-          >
-            Contact
-          </h2>
-          <p className="mt-4 max-w-[42ch] text-lg leading-relaxed text-pretty text-ink">
-            Open to working student, internship, and full-time roles in Germany.
-            Hybrid, on-site, or remote.
-          </p>
-          <ul className="mt-10 flex flex-col items-start gap-4">
-            <li>
-              <a
-                href={site.linkedin}
-                className={linkClass}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-                <IconArrowUpRight />
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.github}
-                className={linkClass}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub, {site.githubHandle}
-                <IconArrowUpRight />
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${site.email}`} className={linkClass}>
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a href={site.phoneHref} className={linkClass}>
-                +49 151 23606101
-              </a>
-            </li>
-          </ul>
-        </Reveal>
+    <section id="contact" aria-labelledby="contact-heading" className="gutter py-16 md:py-28">
+      <div className="shell">
+        <h2 id="contact-heading" className={chapterTitle}>
+          Write
+        </h2>
+        <p className="mt-4 max-w-[42ch] text-lg leading-[1.65] text-pretty">
+          Working student, internship, or full-time work in Germany. Hybrid, on-site, or
+          remote. {site.hourCap}.
+        </p>
+        <ul className="mt-10 flex max-w-[36rem] flex-col items-start gap-4">
+          <li>
+            <a href={`mailto:${site.email}`} className={linkClass}>
+              {site.email}
+            </a>
+          </li>
+          <li>
+            <a href={site.linkedin} className={linkClass} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <IconArrowUpRight />
+            </a>
+          </li>
+          <li>
+            <a href={site.github} className={linkClass} target="_blank" rel="noopener noreferrer">
+              GitHub, {site.githubHandle}
+              <IconArrowUpRight />
+            </a>
+          </li>
+          <li>
+            <a href={site.phoneHref} className={linkClass}>
+              +49 151 23606101
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   );

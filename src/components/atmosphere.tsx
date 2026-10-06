@@ -2,18 +2,21 @@ import Image from "next/image";
 
 export function Atmosphere() {
   return (
-    <div className="gutter py-4 md:py-8">
+    <figure className="gutter py-6 md:py-10">
       <div className="shell">
-        <div className="relative h-[38vh] min-h-[220px] max-h-[460px] overflow-hidden rounded-[12px] bg-raised">
+        <div className="relative aspect-[5/4] max-w-[34rem] overflow-hidden bg-raised sm:aspect-[4/3]">
           <Image
-            src="/images/factory.jpg"
-            alt="Factory floor with machinery and a worker in a high-visibility vest. Atmospheric photograph, not a project."
+            src="/images/hero.jpg"
+            alt="Milling machine cutting a metal workpiece in a workshop. Atmospheric photograph, not a project."
             fill
-            sizes="(min-width: 1400px) 1400px, 100vw"
+            sizes="(min-width: 768px) 34rem, 100vw"
             className="photo-grade object-cover"
           />
         </div>
+        <figcaption className="mt-3 max-w-[34rem] font-mono text-sm text-muted">
+          Workshop photograph. Atmosphere, not a project.
+        </figcaption>
       </div>
-    </div>
+    </figure>
   );
 }

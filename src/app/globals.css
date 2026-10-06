@@ -4,17 +4,19 @@
 
 /*
   Locks
-  - Accent: forest green only. Light and dark share the hue. The value shifts so text stays readable.
-  - Shape: 12px radius on controls, chips, and media.
-  - Theme: tokens swap on html.dark. Sections do not invert on their own.
+  - Accent: forest green only, for figures, emphasis, and links.
+  - Shape: sharp. Print, not product chrome.
+  - Theme: tokens swap on html.dark. Sections stay in one theme.
+  - Type: Cormorant Garamond displays the name and chapters.
+    Source Sans 3 is the reading face. IBM Plex Mono holds dates.
 */
 
 :root {
-  --bg: #e6eee8;
-  --raised: #f3f7f4;
-  --ink: #13201b;
-  --muted: #3c4d45;
-  --line: #c9d5ce;
+  --bg: #f3f4f0;
+  --raised: #e7ebe4;
+  --ink: #1a211d;
+  --muted: #3d4a43;
+  --line: #d5dbd4;
   --accent: #0b5c49;
   --accent-hover: #084538;
   --on-accent: #f4fbf7;
@@ -22,20 +24,21 @@
 }
 
 .dark {
-  --bg: #101613;
-  --raised: #18211c;
-  --ink: #e7f0eb;
-  --muted: #b7c7be;
-  --line: #2c3a33;
-  --accent: #7ddec0;
-  --accent-hover: #b6f0de;
+  --bg: #121614;
+  --raised: #1b2420;
+  --ink: #e7eee9;
+  --muted: #b7c4bc;
+  --line: #2c3b34;
+  --accent: #8fe0c4;
+  --accent-hover: #c6f3e4;
   --on-accent: #06241c;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
   --color-bg: var(--bg);
   --color-raised: var(--raised);
   --color-ink: var(--ink);
@@ -44,11 +47,10 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-on-accent: var(--on-accent);
-  --radius-control: 12px;
 }
 
 html {
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
   background: var(--bg);
 }
 
@@ -68,6 +70,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
   overflow-x: clip;
   text-rendering: optimizeLegibility;
   padding-bottom: env(safe-area-inset-bottom);
@@ -89,11 +93,11 @@ a,
 img,
 input,
 textarea {
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 :where(section, [id]) {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 4.5rem;
 }
 
 .gutter {
@@ -110,18 +114,14 @@ textarea {
 
 @media (min-width: 1024px) {
   .gutter {
-    padding-left: max(2.5rem, env(safe-area-inset-left));
-    padding-right: max(2.5rem, env(safe-area-inset-right));
+    padding-left: max(2.75rem, env(safe-area-inset-left));
+    padding-right: max(2.75rem, env(safe-area-inset-right));
   }
 }
 
+/* Left-aligned book column. The right side of a wide screen stays open. */
 .shell {
-  width: min(1400px, 100%);
-  margin-inline: auto;
-}
-
-.photo-grade {
-  filter: grayscale(0.35) contrast(1.04) saturate(0.55);
+  width: min(72rem, 100%);
 }
 
 .grain {
@@ -129,49 +129,16 @@ textarea {
   inset: 0;
   z-index: 30;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.045;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 .dark .grain {
-  opacity: 0.09;
+  opacity: 0.08;
   mix-blend-mode: soft-light;
 }
 
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .rise {
-    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .reveal {
-    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 28%;
-  }
-
-  @supports not (animation-timeline: view()) {
-    .reveal {
-      animation-timeline: auto;
-      animation-range: normal;
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rise,
-  .reveal {
-    animation: none;
-  }
+.photo-grade {
+  filter: grayscale(0.45) contrast(1.05) saturate(0.4);
 }

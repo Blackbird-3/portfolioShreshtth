@@ -3,8 +3,10 @@
  * craft with one signature interaction, outcome proof, and a sparse
  * experiments strip. Tailwind utilities, Geist, forest-green accent.
  *
- * Dials: DESIGN_VARIANCE 7, MOTION_INTENSITY 6, VISUAL_DENSITY 4.
- * Locks: forest green accent only, corner radius 12, one page theme.
+ * Dials: DESIGN_VARIANCE 8, MOTION_INTENSITY 6, VISUAL_DENSITY 3.
+ * Locks: forest green accent only, sharp corners, one page theme.
+ * Type: Cormorant Garamond for the name, chapters, and figures.
+ * Source Sans 3 for reading. IBM Plex Mono for dates.
  *
  * Facts are taken from the career export. Do not add metrics that are
  * not in that export. Do not link https://shreshtth.me.
@@ -32,12 +34,21 @@ export const site = {
   hourCap: "20 hours a week during term, 40 during the semester break",
 } as const;
 
+export const contents = [
+  { href: "#work", label: "Work" },
+  { href: "#figures", label: "Figures" },
+  { href: "#experiments", label: "Experiments" },
+  { href: "#experience", label: "Path" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Write" },
+] as const;
+
 export const nav = [
   { href: "#work", label: "Work" },
   { href: "#experiments", label: "Experiments" },
-  { href: "#experience", label: "Experience" },
+  { href: "#experience", label: "Path" },
   { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Write" },
 ] as const;
 
 export type ProofStat = {

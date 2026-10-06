@@ -1,10 +1,10 @@
 # Shreshtth Kumar Agarwaal
 
-Personal site for a hiring manager. One page: an outcome hero, recorded figures, selected work, a sideways experiments strip, experience, and contact.
+A personal site, set like a short book. The name opens the page. Chapters follow: work, figures, a sideways experiments strip, the path of jobs, and how to write.
 
-Reading this as: developer portfolio for hiring managers, with a playful editorial language, one squash-and-stretch headline, and a sparse craft strip.
+Cormorant Garamond carries the name, chapter titles, and figures. Source Sans 3 is the reading face. Forest green is the only accent. Corners are sharp.
 
-Dials: design variance 7, motion 6, visual density 4. Forest green is the only accent. Corners are 12px. Light and dark share one page theme.
+The headline squashes when the window resizes, then springs back. That is the only signature motion.
 
 ## Run locally
 
@@ -26,4 +26,4 @@ Public copy lives in `src/lib/site.ts`. Numbers on the page are the ones already
 
 Do not link to shreshtth.me.
 
-Photographs are atmosphere from Unsplash. They are not projects.
+The workshop photograph is atmosphere from Unsplash. It is not a project.
