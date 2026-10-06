@@ -4,54 +4,36 @@
 
 /*
   Locks
-  - Accent: forest green only, for figures, emphasis, and links.
-  - Shape: sharp. Print, not product chrome.
-  - Theme: tokens swap on html.dark. Sections stay in one theme.
-  - Type: Cormorant Garamond displays the name and chapters.
-    Source Sans 3 is the reading face. IBM Plex Mono holds dates.
+  - Palette from Lynn Fisher v.XIX: beige paper, near-black ink, red ink in the dark.
+  - Shape: sharp.
+  - Column: about 500px, centered. The page is a person, not a product canvas.
+  - Type: Bricolage Grotesque (name, figures). Newsreader (reading).
 */
 
 :root {
-  --bg: #f3f4f0;
-  --raised: #e7ebe4;
-  --ink: #1a211d;
-  --muted: #3d4a43;
-  --line: #d5dbd4;
-  --accent: #0b5c49;
-  --accent-hover: #084538;
-  --on-accent: #f4fbf7;
+  --bg: #e4e2d7;
+  --ink: #161616;
+  --bg-deep: #111111;
+  --ink-hot: #ff3b3b;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #121614;
-  --raised: #1b2420;
-  --ink: #e7eee9;
-  --muted: #b7c4bc;
-  --line: #2c3b34;
-  --accent: #8fe0c4;
-  --accent-hover: #c6f3e4;
-  --on-accent: #06241c;
+  --bg: var(--bg-deep);
+  --ink: var(--ink-hot);
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-source), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
-  --font-mono: var(--font-plex), ui-monospace, monospace;
+  --font-serif: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-display: var(--font-bricolage), "Avenir Next", "Segoe UI", sans-serif;
   --color-bg: var(--bg);
-  --color-raised: var(--raised);
   --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-on-accent: var(--on-accent);
 }
 
 html {
-  scroll-padding-top: 4.5rem;
   background: var(--bg);
+  color-scheme: light dark;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -60,85 +42,58 @@ html {
   }
 }
 
-@media (pointer: fine) {
-  html {
-    overscroll-behavior: none;
-  }
-}
-
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.55;
   overflow-x: clip;
   text-rendering: optimizeLegibility;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--ink);
+  color: var(--bg);
 }
 
 a,
 button {
   touch-action: manipulation;
-  -webkit-tap-highlight-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: inherit;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--ink) 24%, transparent);
 }
 
 button,
 a,
-img,
-input,
-textarea {
+img {
   border-radius: 0;
 }
 
-:where(section, [id]) {
-  scroll-margin-top: 4.5rem;
+.folio {
+  width: min(28rem, calc(100% - 2.4rem));
+  margin-inline: auto;
+  margin-block: 1.25rem 4rem;
 }
 
-.gutter {
-  padding-left: max(1rem, env(safe-area-inset-left));
-  padding-right: max(1rem, env(safe-area-inset-right));
-}
-
-@media (min-width: 640px) {
-  .gutter {
-    padding-left: max(2rem, env(safe-area-inset-left));
-    padding-right: max(2rem, env(safe-area-inset-right));
+@media (min-width: 500px) {
+  .folio {
+    width: min(28rem, calc(100% - 4rem));
+    margin-block: 2rem 5rem;
   }
-}
-
-@media (min-width: 1024px) {
-  .gutter {
-    padding-left: max(2.75rem, env(safe-area-inset-left));
-    padding-right: max(2.75rem, env(safe-area-inset-right));
-  }
-}
-
-/* Left-aligned book column. The right side of a wide screen stays open. */
-.shell {
-  width: min(72rem, 100%);
 }
 
 .grain {
   position: fixed;
   inset: 0;
-  z-index: 30;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.07;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 .dark .grain {
-  opacity: 0.08;
+  opacity: 0.12;
   mix-blend-mode: soft-light;
-}
-
-.photo-grade {
-  filter: grayscale(0.45) contrast(1.05) saturate(0.4);
 }

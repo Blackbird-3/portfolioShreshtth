@@ -1,10 +1,10 @@
 # Shreshtth Kumar Agarwaal
 
-A personal site, set like a short book. The name opens the page. Chapters follow: work, figures, a sideways experiments strip, the path of jobs, and how to write.
+A short personal portfolio. The page is a narrow column: the name, one line, contact, and three pieces of work.
 
-Cormorant Garamond carries the name, chapter titles, and figures. Source Sans 3 is the reading face. Forest green is the only accent. Corners are sharp.
+Bricolage Grotesque is the name and the proof figures. Newsreader is the reading face. Light mode is beige paper and near-black ink. Dark mode is near-black and red.
 
-The headline squashes when the window resizes, then springs back. That is the only signature motion.
+The column stretches when the window resizes, then springs back. That is the only signature motion.
 
 ## Run locally
 
@@ -22,8 +22,6 @@ npm start
 
 ## Edit the facts
 
-Public copy lives in `src/lib/site.ts`. Numbers on the page are the ones already recorded for the voice platform, the MetLife budgeting tool, the KPMG dashboards, and the chest X-ray study. Do not add a figure that is not in the career export.
+Public copy lives in `src/lib/site.ts`. The figures on the page are the 35% shorter call handling, the voice latency under 500 ms, and the 20,000+ chest X-rays. EduQuery has no recorded percentage, so none is shown.
 
 Do not link to shreshtth.me.
-
-The workshop photograph is atmosphere from Unsplash. It is not a project.

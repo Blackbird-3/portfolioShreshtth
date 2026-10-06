@@ -1,37 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, IBM_Plex_Mono, Source_Sans_3 } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader, SkipLink } from "@/components/site-header";
+import { Bricolage_Grotesque, Newsreader } from "next/font/google";
+import { SkipLink } from "@/components/skip-link";
 import { ThemeColor, ThemeProvider } from "@/components/theme-provider";
 import { zIndex } from "@/lib/z-index";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const serif = Newsreader({
+  subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-newsreader",
   display: "swap",
 });
 
-const sans = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-source",
-  display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex",
-  display: "swap",
-});
-
-const description =
-  "Shreshtth Kumar Agarwaal, master's student at OTH Amberg-Weiden. Voice, audit, and healthcare AI, with the figures recorded for that work.";
+const description = `${site.name}. ${site.roleLine}.`;
 
 export const metadata: Metadata = {
   title: {
@@ -50,8 +38,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3f4f0" },
-    { media: "(prefers-color-scheme: dark)", color: "#121614" },
+    { media: "(prefers-color-scheme: light)", color: "#e4e2d7" },
+    { media: "(prefers-color-scheme: dark)", color: "#111111" },
   ],
   colorScheme: "light dark",
 };
@@ -63,14 +51,13 @@ const personJsonLd = {
   email: site.email,
   telephone: site.phone,
   sameAs: [site.linkedin, site.github],
-  jobTitle: "M.Sc. student",
+  jobTitle: "AI / ML engineer",
   affiliation: {
     "@type": "CollegeOrUniversity",
-    name: site.school,
+    name: "OTH Amberg-Weiden",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Amberg",
-      addressRegion: "Bavaria",
       addressCountry: "DE",
     },
   },
@@ -81,16 +68,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${display.variable} ${sans.variable} ${mono.variable} h-full antialiased`}
+      className={`${display.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="min-h-[100dvh] bg-bg font-sans text-ink antialiased">
+      <body className="min-h-[100dvh] bg-bg font-serif text-ink antialiased">
         <ThemeProvider>
           <ThemeColor />
           <div aria-hidden className="grain" style={{ zIndex: zIndex.grain }} />
           <SkipLink />
-          <SiteHeader />
           {children}
-          <SiteFooter />
         </ThemeProvider>
         <script
           type="application/ld+json"
