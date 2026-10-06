@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useReducedMotion } from "motion/react";
 
 /**
  * Signature interaction, adapted from Lynn Fisher's 2025 portfolio:
@@ -12,10 +11,10 @@ import { useReducedMotion } from "motion/react";
  */
 export function SquashType({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
 
   useEffect(() => {
-    if (reduce !== false) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
     const el = ref.current;
     if (!el) return;
 
@@ -29,12 +28,6 @@ export function SquashType({ children }: { children: React.ReactNode }) {
 
     const bounce = "transform 420ms cubic-bezier(0.175, 0.885, 0.12, 1.775)";
     const mq = window.matchMedia("(min-width: 500px)");
-
-    const reset = () => {
-      windowWidth = window.innerWidth;
-      el.style.transition = bounce;
-      el.style.transform = "scaleX(1)";
-    };
 
     const onMode = () => {
       window.clearTimeout(resetTimer);
@@ -92,9 +85,10 @@ export function SquashType({ children }: { children: React.ReactNode }) {
       window.clearTimeout(armTimer);
       observer.disconnect();
       mq.removeEventListener("change", onMode);
-      reset();
+      el.style.transition = "none";
+      el.style.transform = "";
     };
-  }, [reduce]);
+  }, []);
 
   return (
     <div ref={ref} className="relative z-[1] w-fit max-w-full">

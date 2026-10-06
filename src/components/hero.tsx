@@ -13,7 +13,7 @@ export function Hero() {
           </p>
           <SquashType>
             <h1 className="rise mt-4 max-w-[9ch] text-5xl leading-[1.05] font-medium tracking-tight sm:text-6xl lg:text-7xl">
-              Call time down <span className="italic">35%</span>.
+              Call time down <span className="italic text-accent">35%</span>.
             </h1>
           </SquashType>
           <p className="rise mt-5 max-w-[38ch] text-base leading-relaxed text-pretty text-muted sm:text-lg">

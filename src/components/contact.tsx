@@ -50,7 +50,7 @@ export function Contact() {
             </li>
             <li>
               <a href={site.phoneHref} className={linkClass}>
-                {site.phone}
+                +49 151 23606101
               </a>
             </li>
           </ul>

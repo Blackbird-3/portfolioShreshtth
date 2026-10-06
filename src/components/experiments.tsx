@@ -1,6 +1,5 @@
 "use client";
 
-import { useReducedMotion } from "motion/react";
 import { StackChips } from "@/components/stack-chips";
 import { experiments } from "@/lib/site";
 
@@ -13,8 +12,6 @@ const widths = [
 ];
 
 export function Experiments() {
-  const reduce = useReducedMotion();
-
   return (
     <section
       id="experiments"
@@ -53,7 +50,9 @@ export function Experiments() {
               const delta = event.key === "ArrowRight" ? 1 : -1;
               event.currentTarget.scrollBy({
                 left: delta * Math.min(440, event.currentTarget.clientWidth * 0.72),
-                behavior: reduce ? "auto" : "smooth",
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ? "auto"
+                : "smooth",
               });
             }}
             className="shell mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:gap-6"
