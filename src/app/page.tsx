@@ -22,7 +22,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="flex min-h-[calc(100dvh-92px)] flex-col justify-end bg-alarm px-4 pt-[50px] pb-[50px] text-obsidian sm:px-6">
+      <section className="hero flex min-h-[calc(100dvh-92px)] flex-col justify-end bg-alarm px-4 pt-[50px] pb-[50px] text-obsidian sm:px-6">
         <h1 className="masthead" translate="no">
           {site.displayLines.map((line) => (
             <span key={line} className="block">

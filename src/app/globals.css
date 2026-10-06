@@ -54,21 +54,17 @@ img {
   border-radius: 0;
 }
 
+.hero {
+  container-type: inline-size;
+}
+
 .masthead {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(4.75rem, 26vw, 7.25rem);
-  line-height: 0.72;
-  letter-spacing: -0.07em;
+  font-size: clamp(3.25rem, 20cqi, 20rem);
+  line-height: 0.74;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
-}
-
-@media (min-width: 900px) {
-  .masthead {
-    font-size: 20.5vw;
-    line-height: 0.74;
-    letter-spacing: -0.07em;
-  }
 }
 
 .project-name {
