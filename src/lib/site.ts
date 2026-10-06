@@ -14,8 +14,8 @@
 export const site = {
   name: "Shreshtth Kumar Agarwaal",
   shortName: "Shreshtth",
-  displayLines: ["Shreshtth", "Agarwaal"] as const,
-  roleLine: "AI engineer in Amberg",
+  displayLines: ["Shreshtth", "Kumar", "Agarwaal"] as const,
+  roleLine: "AI engineer · master’s student",
   email: "agarwalshreshth3@gmail.com",
   phone: "+49 15123606101",
   phoneHref: "tel:+4915123606101",

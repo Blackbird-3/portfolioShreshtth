@@ -19,12 +19,12 @@ const serif = Newsreader({
   display: "swap",
 });
 
-const description = `${site.name}. AI engineer studying in Amberg.`;
+const description = `${site.name}. ${site.roleLine}.`;
 
 export const metadata: Metadata = {
   title: {
     default: site.name,
-    template: `%s | Shreshtth`,
+    template: `%s | ${site.name}`,
   },
   description,
   authors: [{ name: site.name, url: site.linkedin }],
@@ -51,16 +51,7 @@ const personJsonLd = {
   email: site.email,
   telephone: site.phone,
   sameAs: [site.linkedin, site.github],
-  jobTitle: "AI / ML engineer",
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: "OTH Amberg-Weiden",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Amberg",
-      addressCountry: "DE",
-    },
-  },
+  jobTitle: "AI engineer",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

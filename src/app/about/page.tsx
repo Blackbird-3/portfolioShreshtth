@@ -6,7 +6,7 @@ import { textLink } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Shreshtth Kumar Agarwaal, an AI engineer studying in Amberg.",
+  description: "Shreshtth Kumar Agarwaal, an AI engineer and a master’s student.",
 };
 
 export default function AboutPage() {
@@ -19,8 +19,9 @@ export default function AboutPage() {
         </header>
         <div className="about-copy mt-10">
           <p>
-            I&apos;m Shreshtth, an AI engineer studying in Amberg. The program is
-            artificial intelligence for industrial applications at OTH Amberg-Weiden.
+            I&apos;m Shreshtth Kumar Agarwaal, an AI engineer and a master&apos;s
+            student. The program is artificial intelligence for industrial
+            applications.
           </p>
           <p>
             Three pieces are on{" "}

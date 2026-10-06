@@ -9,9 +9,12 @@ export default function Home() {
       <ScaleColumn className="my-12">
         <header className="text-center">
           <h1 className="home-name" translate="no">
-            {site.displayLines[0]}
-            <br />
-            {site.displayLines[1]}
+            {site.displayLines.map((line, index) => (
+              <span key={line}>
+                {index > 0 ? <br /> : null}
+                {line}
+              </span>
+            ))}
           </h1>
           <p className="home-role">{site.roleLine}</p>
         </header>
