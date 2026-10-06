@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const themeColors = {
-  light: "#e7e9ed",
-  dark: "#13161b",
+  light: "#e6eee8",
+  dark: "#101613",
 } as const;
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

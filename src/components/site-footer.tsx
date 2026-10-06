@@ -19,9 +19,7 @@ export function SiteFooter() {
             LinkedIn
           </a>
         </div>
-        <p className="shell mt-6 text-sm text-muted">
-          Photographs via Unsplash. Not projects.
-        </p>
+        <p className="shell mt-6 text-sm text-muted">Photographs via Unsplash.</p>
       </div>
     </footer>
   );

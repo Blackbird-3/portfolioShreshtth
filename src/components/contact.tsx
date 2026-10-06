@@ -1,11 +1,13 @@
 import { IconArrowUpRight } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { site } from "@/lib/site";
-import { buttonPrimary, textLink } from "@/lib/styles";
+import { focusRing } from "@/lib/styles";
+
+const linkClass = `inline-flex items-center gap-2 rounded-[12px] text-2xl font-medium tracking-tight text-ink transition-colors duration-200 hover:text-accent sm:text-3xl ${focusRing}`;
 
 export function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-raised py-16 md:py-28">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-raised py-16 md:py-24">
       <div className="gutter">
         <Reveal className="shell">
           <h2
@@ -14,26 +16,44 @@ export function Contact() {
           >
             Contact
           </h2>
-          <p className="mt-5 max-w-[40ch] text-lg leading-relaxed text-pretty">
-            LinkedIn is the way to reach me about a Werkstudent role.
+          <p className="mt-4 max-w-[42ch] text-lg leading-relaxed text-pretty text-ink">
+            Open to working student, internship, and full-time roles in Germany.
+            Hybrid, on-site, or remote.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-6">
-            <a
-              href={site.linkedin}
-              className={buttonPrimary}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact on LinkedIn"
-            >
-              Contact
-              <IconArrowUpRight />
-            </a>
-            {site.email ? (
-              <a href={`mailto:${site.email}`} className={textLink}>
+          <ul className="mt-10 flex flex-col items-start gap-4">
+            <li>
+              <a
+                href={site.linkedin}
+                className={linkClass}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+                <IconArrowUpRight />
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.github}
+                className={linkClass}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub, {site.githubHandle}
+                <IconArrowUpRight />
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${site.email}`} className={linkClass}>
                 {site.email}
               </a>
-            ) : null}
-          </div>
+            </li>
+            <li>
+              <a href={site.phoneHref} className={linkClass}>
+                {site.phone}
+              </a>
+            </li>
+          </ul>
         </Reveal>
       </div>
     </section>

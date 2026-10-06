@@ -34,13 +34,14 @@ export function SiteHeader() {
       className="fixed inset-x-0 top-0 border-b border-line bg-bg"
       style={{ zIndex: zIndex.header }}
     >
-      <div className="gutter mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4">
+      <div className="gutter">
+        <div className="shell flex h-16 items-center justify-between gap-4">
         <a
           href="#top"
           translate="no"
           className={`min-w-0 truncate text-[13px] font-medium tracking-tight text-ink sm:text-sm ${focusRing}`}
         >
-          {site.name}
+          {site.shortName}
         </a>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Page">
@@ -48,7 +49,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className={`inline-flex h-11 items-center px-3 text-sm text-ink transition-colors duration-200 hover:text-accent ${focusRing}`}
+              className={`inline-flex h-11 items-center px-3 text-sm whitespace-nowrap text-ink transition-colors duration-200 hover:text-accent ${focusRing}`}
             >
               {item.label}
             </a>
@@ -80,6 +81,7 @@ export function SiteHeader() {
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           </button>
         </div>
+        </div>
       </div>
 
       {open ? (
@@ -91,7 +93,7 @@ export function SiteHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
         >
-          <ul className="mx-auto flex max-w-[1400px] flex-col py-2">
+          <ul className="shell flex flex-col py-2">
             {nav.map((item, index) => (
               <li key={item.href}>
                 <a
