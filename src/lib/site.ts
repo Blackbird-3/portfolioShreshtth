@@ -1,12 +1,9 @@
 /**
  * Reading this as: a personal portfolio for hiring managers.
- * Color and scale from Charlie Le Maignan on Refero (style 34aa811f):
- * obsidian #000000, bone white #ffffff, one alarm red #ed1c24 wall.
- * Work list from Doug-Alves: a name, one figure, fine print, hairline rules.
- *
- * Dials: DESIGN_VARIANCE 8, MOTION_INTENSITY 2, VISUAL_DENSITY 3.
- * Display: Antonio (Brasparz stand-in) at poster scale.
- * Body: Inter 19px, the Neue Haas stand-in.
+ * Charlie Le Maignan on Refero (style 34aa811f) is the system.
+ * Obsidian #000000, bone #ffffff, ash #838383 for captions, one alarm red #ed1c24 block.
+ * Display: Archivo Black, capped near 220px. Body: Inter 19–20px.
+ * Credits: IBM Plex Mono.
  *
  * Facts come from the career export. Do not add metrics that are not in
  * that export. Do not link https://shreshtth.me.

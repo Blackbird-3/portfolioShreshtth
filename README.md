@@ -1,8 +1,8 @@
 # Shreshtth Kumar Agarwaal
 
-A single-page portfolio. The name sits on one red wall. The rest of the page is black type at architectural scale, with three pieces split by white hairlines.
+A single-page portfolio in the Charlie Le Maignan system. The name is set in Archivo Black, white on black, then black on one red block. Work is three rows under that.
 
-Tokens from Charlie Le Maignan on Refero: obsidian `#000000`, bone white `#ffffff`, alarm red `#ed1c24`. Display is Antonio. Body is Inter at 19px. The work list keeps Doug-Alves’s name, figure, and fine-print structure.
+Tokens: obsidian `#000000`, bone white `#ffffff`, ash `#838383` for captions, alarm red `#ed1c24` once. Body is Inter at 19–20px. Credits are IBM Plex Mono.
 
 ## Run locally
 

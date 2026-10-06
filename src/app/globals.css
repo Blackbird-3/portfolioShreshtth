@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 /*
-  Blend.
-  Charlie (Refero 34aa811f): obsidian #000000 canvas, bone white #ffffff type,
-  one alarm-red #ed1c24 wall, display tracking crushed, body 19px.
-  Doug-Alves: hairline rules and a name-plus-figure work list, no cards.
-  Ash gray is unused. It fails contrast on black.
+  Charlie Le Maignan, Refero style 34aa811f.
+  Obsidian #000000 canvas, bone #ffffff type, ash #838383 captions only,
+  one alarm-red #ed1c24 detonation. Display is Archivo Black, capped near 220px.
+  Body is Inter 19px. Credits are IBM Plex Mono.
 */
 
 :root {
   --obsidian: #000000;
   --bone-white: #ffffff;
+  --ash: #838383;
   --alarm-red: #ed1c24;
   color-scheme: dark;
 }
 
 @theme inline {
   --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-antonio), Antonio, "Arial Narrow", Impact, sans-serif;
+  --font-display: var(--font-archivo), "Archivo Black", Impact, sans-serif;
+  --font-mono: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
   --color-obsidian: var(--obsidian);
   --color-bone: var(--bone-white);
+  --color-ash: var(--ash);
   --color-alarm: var(--alarm-red);
 }
 
@@ -27,6 +29,7 @@ html,
 body {
   background: var(--obsidian);
   color: var(--bone-white);
+  overflow-x: clip;
 }
 
 body {
@@ -54,31 +57,18 @@ img {
   border-radius: 0;
 }
 
-.hero {
-  container-type: inline-size;
-}
-
 .masthead {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(3.25rem, 20cqi, 20rem);
-  line-height: 0.74;
-  letter-spacing: -0.06em;
+  font-size: clamp(2.75rem, 15.2vw, 13.75rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
 }
 
-.project-name {
-  font-weight: 700;
-  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-}
-
-.project-figure {
-  font-weight: 400;
-  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+.masthead span {
+  display: block;
+  white-space: nowrap;
 }
 
 .rule {
