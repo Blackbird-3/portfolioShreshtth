@@ -1,5 +1,5 @@
 import { SectionNav } from "@/components/section-nav";
-import { WaveWord } from "@/components/wave-word";
+import { MorphWord } from "@/components/morph-word";
 import { focusRing } from "@/lib/styles";
 import { contact, pieces, site } from "@/lib/site";
 
@@ -13,7 +13,7 @@ export default function Home() {
         <h1 className="masthead mt-[30px]" translate="no">
           <span className="sr-only">{site.name}</span>
           <span className="block bg-obsidian text-bone">
-            <WaveWord text={first} />
+            <MorphWord text={first} />
           </span>
           {rest.map((line) => (
             <span key={line} className="bg-alarm text-obsidian">
@@ -35,10 +35,10 @@ export default function Home() {
           {pieces.map((piece) => (
             <li key={piece.title} className="rule border-b px-5 py-[50px] sm:px-8">
               <div className="grid items-end gap-[15px] md:grid-cols-12">
-                <h3 className="work-name md:col-span-7">{piece.title}</h3>
+                <h3 className="text-[40px] leading-[1.08] font-bold md:col-span-7">{piece.title}</h3>
                 {piece.figure ? (
                   <p className="md:col-span-5 md:text-right">
-                    <span className="work-name block">{piece.figure.value}</span>
+                    <span className="block text-[40px] leading-[1.08] font-bold">{piece.figure.value}</span>
                     <span className="mt-3 block text-[19px] leading-[1.32] font-bold tracking-[0.04em] uppercase">
                       {piece.figure.label}
                     </span>
