@@ -1,98 +1,58 @@
 /**
- * Design read: solo developer / AI engineer portfolio for hiring managers,
- * with a calm editorial-minimal language, leaning toward Tailwind utilities
- * + restrained motion + strong typography.
+ * Reading this as: a personal portfolio for hiring managers.
+ * Charlie Le Maignan on Refero (style 34aa811f) is the system.
+ * Obsidian #000000, bone #ffffff, ash #838383 for captions, one alarm red #ed1c24 block.
+ * Display: Unbounded Black, the widest public stand-in for Druk Wide.
+ * Line-height 0.70, tracking -0.08em on the hero.
+ * Body: Inter 19–20px. Credit under the red block: Cormorant SC.
  *
- * Dials: DESIGN_VARIANCE 6, MOTION_INTENSITY 5, VISUAL_DENSITY 4.
- * Locks: copper accent only (hue stays, value shifts for contrast),
- * corner radius 0, one page-level theme (light / dark / system).
- *
- * Edit this file to add real projects, roles, and an email.
- * Use a hyphen for ranges. Do not add https://shreshtth.me.
+ * Facts come from the career export. Do not add metrics that are not in
+ * that export. Do not link https://shreshtth.me.
  */
 
 export const site = {
   name: "Shreshtth Kumar Agarwaal",
-  shortName: "Shreshtth",
-  roleLine: "M.Sc. student, OTH Amberg-Weiden",
+  displayLines: ["Shreshtth", "Kumar", "Agarwaal"] as const,
+  roleLine: "AI engineer · master’s student",
+  email: "agarwalshreshth3@gmail.com",
+  phone: "+49 15123606101",
+  phoneHref: "tel:+4915123606101",
   linkedin: "https://www.linkedin.com/in/shreshtth-kumar-agarwaal/",
-  email: "",
-  program: "M.Sc. Artificial Intelligence for Industrial Applications",
-  school: "OTH Amberg-Weiden",
-  place: "Amberg, Bavaria",
-  studyPlanUrl:
-    "https://www.oth-aw.de/en/studies/study-offers/study-programmes/master/artificial-intelligence-industrial-applications/structure/",
+  github: "https://github.com/Blackbird-3",
 } as const;
 
-export const nav = [
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-] as const;
-
-export type Role = {
+export type Piece = {
   title: string;
-  organization: string;
-  dates: string;
-  summary: string;
+  sentence: string;
+  figure?: { value: string; label: string };
+  stack: string[];
 };
 
-/** Leave empty until there is a real position to list. */
-export const experience: Role[] = [];
-
-export type Project = {
-  title: string;
-  summary: string;
-  href: string;
-};
-
-/**
- * Empty title renders an open-project placeholder.
- * Example:
- * { title: "Project name", summary: "One sentence on what you built.", href: "https://example.com" }
- */
-export const projects: Project[] = [
-  { title: "", summary: "", href: "" },
-  { title: "", summary: "", href: "" },
-  { title: "", summary: "", href: "" },
+/** Three pieces. One recorded figure each, except EduQuery, which has none. */
+export const pieces: Piece[] = [
+  {
+    title: "Enterprise AI Voice",
+    sentence:
+      "A production voice platform for customer calls, with latency under 500 ms.",
+    figure: { value: "35%", label: "shorter call handling" },
+    stack: ["Python", "FastAPI", "LiveKit", "Gemini"],
+  },
+  {
+    title: "COVID-19 Detection",
+    sentence: "Chest X-ray classification with Grad-CAM explanations.",
+    figure: { value: "20,000+", label: "chest X-ray images" },
+    stack: ["Python", "Grad-CAM", "Computer Vision"],
+  },
+  {
+    title: "EduQuery",
+    sentence: "Questions answered from university policy documents.",
+    stack: ["Flask", "React", "Pinecone", "Hugging Face"],
+  },
 ];
 
-export const openProjectCopy = [
-  "Add a name, a one-line summary, and a link.",
-  "A second project can go here.",
-  "A third project can go here.",
-] as const;
-
-/** Compulsory modules from the published OTH Amberg-Weiden study plan. */
-export const studyGroups = [
-  {
-    title: "Vision and robotics",
-    modules: ["Deep Learning", "Computer Vision and AI"],
-  },
-  {
-    title: "Data and language",
-    modules: [
-      "Machine Learning",
-      "Modern Databases and NoSQL",
-      "Natural Language Processing and Information Retrieval",
-    ],
-  },
-  {
-    title: "Applications",
-    modules: ["AI Project", "Interdisciplinary Topic"],
-  },
-  {
-    title: "Scientific training",
-    modules: [
-      "AI Conference",
-      "Scientific Research and Methods",
-      "Master thesis",
-    ],
-  },
-] as const;
-
-export const languages = [
-  { name: "German", detail: "B1" },
-  { name: "English", detail: "Working language of this site" },
+export const contact = [
+  { href: `mailto:${site.email}`, kicker: "Email", label: site.email },
+  { href: site.linkedin, kicker: "LinkedIn", label: "in/shreshtth-kumar-agarwaal" },
+  { href: site.github, kicker: "GitHub", label: "Blackbird-3" },
+  { href: site.phoneHref, kicker: "Phone", label: site.phone },
 ] as const;

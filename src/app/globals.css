@@ -1,160 +1,95 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 /*
-  Locks
-  - Accent: copper only. Light and dark use the same hue; the value shifts so text stays readable.
-  - Shape: radius 0 on controls and media.
-  - Theme: tokens swap on html.dark. Sections do not invert on their own.
+  Charlie Le Maignan, Refero style 34aa811f.
+  Obsidian #000000 canvas, bone #ffffff type, ash #838383 captions only,
+  one alarm-red #ed1c24 detonation. Display is Unbounded Black, the widest
+  public grotesque next/font can load in place of Druk Wide. Line-height 0.70.
+  Body is Inter 19–20px. The credit under the red block is Cormorant SC.
 */
 
 :root {
-  --bg: #e7e9ed;
-  --raised: #f3f5f7;
-  --ink: #1b2027;
-  --muted: #3f4a58;
-  --line: #d0d5dc;
-  --accent: #a3441c;
-  --accent-hover: #7e3014;
-  --on-accent: #f7f4f1;
-  color-scheme: light;
-}
-
-.dark {
-  --bg: #13161b;
-  --raised: #1c2128;
-  --ink: #e7e9ed;
-  --muted: #c5ccd4;
-  --line: #323943;
-  --accent: #e39264;
-  --accent-hover: #f3c0a0;
-  --on-accent: #1b120e;
+  --obsidian: #000000;
+  --bone-white: #ffffff;
+  --ash: #838383;
+  --alarm-red: #ed1c24;
   color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --color-bg: var(--bg);
-  --color-raised: var(--raised);
-  --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-on-accent: var(--on-accent);
-  --radius-none: 0px;
+  --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-druk), Unbounded, Impact, sans-serif;
+  --font-serif: var(--font-credit), "Cormorant SC", Palatino, "Palatino Linotype", serif;
+  --color-obsidian: var(--obsidian);
+  --color-bone: var(--bone-white);
+  --color-ash: var(--ash);
+  --color-alarm: var(--alarm-red);
 }
 
-html {
-  scroll-padding-top: 5rem;
-  background: var(--bg);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-@media (pointer: fine) {
-  html {
-    overscroll-behavior: none;
-  }
+html,
+body {
+  background: var(--obsidian);
+  color: var(--bone-white);
+  overflow-x: clip;
 }
 
 body {
-  background: var(--bg);
-  color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.32;
   overflow-x: clip;
   text-rendering: optimizeLegibility;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--alarm-red);
+  color: var(--obsidian);
 }
 
 a,
 button {
   touch-action: manipulation;
-  -webkit-tap-highlight-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  color: inherit;
 }
 
 button,
-a,
-img,
-input,
-textarea {
+img {
   border-radius: 0;
 }
 
-:where(section, [id]) {
-  scroll-margin-top: 5rem;
+.masthead {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.2rem, 16.2vw, 16rem);
+  line-height: 0.7;
+  letter-spacing: -0.06em;
+  padding-top: 0.2em;
+  text-transform: uppercase;
 }
 
-.gutter {
-  padding-left: max(1rem, env(safe-area-inset-left));
-  padding-right: max(1rem, env(safe-area-inset-right));
-}
-
-@media (min-width: 640px) {
-  .gutter {
-    padding-left: max(2rem, env(safe-area-inset-left));
-    padding-right: max(2rem, env(safe-area-inset-right));
+@media (min-width: 900px) {
+  .masthead {
+    font-size: min(16.2vw, 16rem);
+    letter-spacing: -0.08em;
   }
 }
 
-@media (min-width: 1024px) {
-  .gutter {
-    padding-left: max(2.5rem, env(safe-area-inset-left));
-    padding-right: max(2.5rem, env(safe-area-inset-right));
-  }
+.masthead span {
+  display: block;
+  white-space: nowrap;
+  margin-left: -0.05em;
 }
 
-.shell {
-  width: min(1400px, 100%);
-  margin-inline: auto;
+.work-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
 }
 
-.photo-grade {
-  filter: grayscale(0.28) contrast(1.05) saturate(0.72);
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .rise {
-    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  .reveal {
-    animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 28%;
-  }
-
-  @supports not (animation-timeline: view()) {
-    .reveal {
-      animation-timeline: auto;
-      animation-range: normal;
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rise {
-    animation: none;
-  }
+.rule {
+  border-color: var(--bone-white);
 }

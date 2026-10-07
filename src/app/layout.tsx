@@ -1,24 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader, SkipLink } from "@/components/site-header";
-import { ThemeColor, ThemeProvider } from "@/components/theme-provider";
+import { Cormorant_SC, Inter, Unbounded } from "next/font/google";
+import { SkipLink } from "@/components/skip-link";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
-const description =
-  "Shreshtth Kumar Agarwaal, M.Sc. student in Artificial Intelligence for Industrial Applications at OTH Amberg-Weiden. Open to Werkstudent roles.";
+const display = Unbounded({
+  subsets: ["latin"],
+  weight: "900",
+  variable: "--font-druk",
+  display: "swap",
+});
+
+const credit = Cormorant_SC({
+  subsets: ["latin"],
+  weight: "500",
+  variable: "--font-credit",
+  display: "swap",
+});
+
+const description = `${site.name}. ${site.roleLine}.`;
 
 export const metadata: Metadata = {
   title: {
     default: site.name,
-    template: `%s`,
+    template: `%s | ${site.name}`,
   },
   description,
   authors: [{ name: site.name, url: site.linkedin }],
@@ -31,46 +43,26 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e7e9ed" },
-    { media: "(prefers-color-scheme: dark)", color: "#13161b" },
-  ],
-  colorScheme: "light dark",
+  themeColor: "#000000",
+  colorScheme: "dark",
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: site.name,
-  sameAs: [site.linkedin],
-  jobTitle: "M.Sc. student",
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: site.school,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Amberg",
-      addressRegion: "Bavaria",
-      addressCountry: "DE",
-    },
-  },
+  email: site.email,
+  telephone: site.phone,
+  sameAs: [site.linkedin, site.github],
+  jobTitle: "AI engineer",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${outfit.variable} h-full antialiased`}
-    >
-      <body className="min-h-[100dvh] bg-bg font-sans text-ink antialiased">
-        <ThemeProvider>
-          <ThemeColor />
-          <SkipLink />
-          <SiteHeader />
-          {children}
-          <SiteFooter />
-        </ThemeProvider>
+    <html lang="en" className={`${sans.variable} ${display.variable} ${credit.variable} h-full antialiased`}>
+      <body className="min-h-[100dvh] bg-obsidian font-sans text-bone antialiased">
+        <SkipLink />
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

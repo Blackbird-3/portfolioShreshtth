@@ -1,20 +1,18 @@
 import Link from "next/link";
-import { buttonPrimary } from "@/lib/styles";
+import { focusRing } from "@/lib/styles";
 
 export default function NotFound() {
   return (
-    <main id="content" className="gutter flex min-h-[100dvh] flex-col justify-center py-24">
-      <div className="shell">
-        <h1 className="text-4xl font-medium tracking-tight text-balance md:text-6xl">
-          Page Not Found
-        </h1>
-        <p className="mt-4 max-w-[36ch] text-lg text-muted">
-          This address is not part of the site.
-        </p>
-        <Link href="/" className={`${buttonPrimary} mt-8`}>
-          Home
-        </Link>
-      </div>
+    <main id="content" className="flex min-h-[100dvh] flex-col justify-end bg-alarm px-5 pb-[50px] text-obsidian sm:px-8">
+      <h1 className="font-display text-[clamp(4rem,12vw,8rem)] leading-[0.7] font-normal tracking-[-0.06em] uppercase">
+        Not here.
+      </h1>
+      <p className="mt-[20px] max-w-[36rem] text-[19px] leading-[1.32]">
+        That address does not match a page.
+      </p>
+      <Link href="/" className={`mt-8 inline-block text-[19px] underline decoration-1 underline-offset-[3px] ${focusRing}`}>
+        Back home
+      </Link>
     </main>
   );
 }
