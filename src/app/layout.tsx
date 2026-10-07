@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anybody, Cormorant_SC, Inter } from "next/font/google";
+import { Cormorant_SC, Inter, Unbounded } from "next/font/google";
 import { SkipLink } from "@/components/skip-link";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -11,10 +11,10 @@ const sans = Inter({
   display: "swap",
 });
 
-const morph = Anybody({
+const display = Unbounded({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-morph",
+  weight: "900",
+  variable: "--font-druk",
   display: "swap",
 });
 
@@ -59,10 +59,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${morph.variable} ${credit.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${sans.variable} ${display.variable} ${credit.variable} h-full antialiased`}>
       <body className="min-h-[100dvh] bg-obsidian font-sans text-bone antialiased">
         <SkipLink />
         {children}

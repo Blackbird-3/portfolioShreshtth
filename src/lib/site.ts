@@ -2,8 +2,9 @@
  * Reading this as: a personal portfolio for hiring managers.
  * Charlie Le Maignan on Refero (style 34aa811f) is the system.
  * Obsidian #000000, bone #ffffff, ash #838383 for captions, one alarm red #ed1c24 block.
- * Display: Unbounded. The first name runs a per-letter width and weight wave,
- * the same motion as the CHARLIE wordmark. Body: Inter. Credit: Cormorant SC.
+ * Display: Unbounded Black, the widest public stand-in for Druk Wide.
+ * Line-height 0.70, tracking -0.08em on the hero.
+ * Body: Inter 19–20px. Credit under the red block: Cormorant SC.
  *
  * Facts come from the career export. Do not add metrics that are not in
  * that export. Do not link https://shreshtth.me.

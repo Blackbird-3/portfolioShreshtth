@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 /*
-  Charlie Le Maignan layout.
-  Obsidian canvas, one alarm-red wall.
-  Display type is Anybody, a variable grotesque with width and weight
-  axes. The first name morphs in morph-word.tsx. Kumar and Agarwaal
-  stay on a locked wide, heavy setting of the same face.
+  Charlie Le Maignan, Refero style 34aa811f.
+  Obsidian #000000 canvas, bone #ffffff type, ash #838383 captions only,
+  one alarm-red #ed1c24 detonation. Display is Unbounded Black, the widest
+  public grotesque next/font can load in place of Druk Wide. Line-height 0.70.
+  Body is Inter 19–20px. The credit under the red block is Cormorant SC.
 */
 
 :root {
@@ -18,7 +18,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-morph), Anybody, Impact, sans-serif;
+  --font-display: var(--font-druk), Unbounded, Impact, sans-serif;
   --font-serif: var(--font-credit), "Cormorant SC", Palatino, "Palatino Linotype", serif;
   --color-obsidian: var(--obsidian);
   --color-bone: var(--bone-white);
@@ -60,44 +60,33 @@ img {
 
 .masthead {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3.2rem, 15.4vw, 15rem);
-  font-synthesis: none;
-  font-variation-settings: "wdth" 128, "wght" 800;
-  line-height: 0.72;
-  letter-spacing: -0.04em;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 16.2vw, 16rem);
+  line-height: 0.7;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
 }
 
 @media (min-width: 900px) {
   .masthead {
-    font-size: min(14.6vw, 14.5rem);
-    letter-spacing: -0.045em;
+    font-size: min(16.2vw, 16rem);
+    letter-spacing: -0.08em;
   }
 }
 
-.masthead > span:not(.sr-only) {
+.masthead span {
   display: block;
   white-space: nowrap;
   margin-left: -0.05em;
 }
 
-.morph-word {
-  display: block;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-}
-
-.morph-letter {
-  display: inline-block;
-  font-variation-settings: "wdth" 118, "wght" 780;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .morph-letter {
-    font-variation-settings: "wdth" 118, "wght" 780;
-  }
+.work-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
 }
 
 .rule {
