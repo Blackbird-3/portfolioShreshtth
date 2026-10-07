@@ -1,0 +1,40 @@
+.section-nav .glass-container,
+.section-nav .glass-button {
+  isolation: isolate;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.34);
+  box-shadow: none;
+  backdrop-filter: blur(18px);
+}
+
+.section-nav .glass-container {
+  gap: 8px;
+  padding: 6px;
+}
+
+.section-nav canvas {
+  box-shadow: none !important;
+}
+
+.section-nav .glass-button-text {
+  color: #fff;
+  font-family: inherit;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.35);
+}
+
+.section-nav a[aria-current="true"] .glass-button,
+.section-nav a:hover .glass-button {
+  background: #fff;
+  border-color: #fff;
+}
+
+.section-nav a[aria-current="true"] canvas,
+.section-nav a:hover canvas {
+  opacity: 0.28;
+}
+
+.section-nav a[aria-current="true"] .glass-button-text,
+.section-nav a:hover .glass-button-text {
+  color: #000;
+  text-shadow: none;
+}
