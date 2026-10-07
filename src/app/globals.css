@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 /*
-  Charlie Le Maignan, Refero style 34aa811f.
-  Obsidian #000000 canvas, bone #ffffff type, ash #838383 captions only,
-  one alarm-red #ed1c24 detonation. Display is Unbounded Black, the widest
-  public grotesque next/font can load in place of Druk Wide. Line-height 0.70.
-  Body is Inter 19–20px. The credit under the red block is Cormorant SC.
+  Charlie Le Maignan. Obsidian void, one alarm-red wall.
+  Display is Antonio Bold, the Google substitute named beside Druk Wide.
+  It is used only at hero scale: line-height 0.70, tracking -0.079em.
+  Body is Inter. The credit under the red wall is Cormorant SC.
 */
 
 :root {
@@ -18,7 +17,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-druk), Unbounded, Impact, sans-serif;
+  --font-display: var(--font-antonio), Antonio, Impact, "Arial Narrow", sans-serif;
   --font-serif: var(--font-credit), "Cormorant SC", Palatino, "Palatino Linotype", serif;
   --color-obsidian: var(--obsidian);
   --color-bone: var(--bone-white);
@@ -58,35 +57,21 @@ img {
   border-radius: 0;
 }
 
-.masthead {
+.wordmark {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3.2rem, 16.2vw, 16rem);
+  font-weight: 700;
+  font-size: clamp(4.75rem, 28vw, 34rem);
   line-height: 0.7;
   letter-spacing: -0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 @media (min-width: 900px) {
-  .masthead {
-    font-size: min(16.2vw, 16rem);
-    letter-spacing: -0.08em;
+  .wordmark {
+    font-size: min(34vw, 34rem);
+    letter-spacing: -0.079em;
   }
-}
-
-.masthead span {
-  display: block;
-  white-space: nowrap;
-  margin-left: -0.05em;
-}
-
-.work-name {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
-  line-height: 0.84;
-  letter-spacing: -0.06em;
-  text-transform: uppercase;
 }
 
 .rule {
