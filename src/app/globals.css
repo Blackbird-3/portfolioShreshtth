@@ -64,6 +64,7 @@ img {
   font-size: clamp(3.2rem, 16.2vw, 16rem);
   line-height: 0.7;
   letter-spacing: -0.06em;
+  padding-top: 0.2em;
   text-transform: uppercase;
 }
 

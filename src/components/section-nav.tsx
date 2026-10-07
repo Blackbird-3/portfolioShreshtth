@@ -30,6 +30,7 @@ type GlassButton = {
 export function SectionNav() {
   const navRef = useRef<HTMLElement>(null);
   const mountRef = useRef<HTMLDivElement>(null);
+  const glassRef = useRef<GlassButton[]>([]);
   const [active, setActive] = useState<string | null>(null);
   const [glassOn, setGlassOn] = useState(false);
 
@@ -88,12 +89,12 @@ export function SectionNav() {
       if (!alive || !mountRef.current) return;
 
       const controls = {
-        edgeIntensity: 0.06,
-        rimIntensity: 0.16,
-        baseIntensity: 0.02,
-        blurRadius: 4,
-        rippleEffect: 0.05,
-        cornerBoost: 0.04,
+        edgeIntensity: 0.02,
+        rimIntensity: 0.04,
+        baseIntensity: 0.005,
+        blurRadius: 2,
+        rippleEffect: 0.0,
+        cornerBoost: 0.0,
       };
       (window as Window & { glassControls?: typeof controls }).glassControls = controls;
 
@@ -102,7 +103,7 @@ export function SectionNav() {
           text: link.label,
           size: 19,
           type: "pill",
-          tintOpacity: 0.35,
+          tintOpacity: 0.2,
         }) as unknown as GlassButton;
         created.push(button);
         if (!button.gl) {
@@ -123,12 +124,8 @@ export function SectionNav() {
       const watch = () => {
         if (!alive) return;
         if (created.every((button) => button.webglInitialized)) {
+          glassRef.current = created;
           setGlassOn(true);
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              created.forEach((button) => button.render?.());
-            });
-          });
           return;
         }
         if (performance.now() - started > 5000) {
@@ -145,13 +142,22 @@ export function SectionNav() {
     return () => {
       alive = false;
       created.forEach((item) => item.destroy());
+      glassRef.current = [];
       mount.replaceChildren();
       setGlassOn(false);
     };
   }, []);
 
+  useEffect(() => {
+    if (!glassOn) return;
+    const id = requestAnimationFrame(() => {
+      glassRef.current.forEach((button) => button.render?.());
+    });
+    return () => cancelAnimationFrame(id);
+  }, [glassOn]);
+
   return (
-    <nav ref={navRef} aria-label="Sections" className="section-nav relative flex justify-center px-5">
+    <nav ref={navRef} aria-label="Sections" className="section-nav relative z-10 flex justify-center px-5">
       <div
         data-nav-fallback=""
         className={glassOn ? "hidden" : "flex justify-center gap-[15px]"}
@@ -173,7 +179,7 @@ export function SectionNav() {
         className={
           glassOn
             ? "flex justify-center gap-[15px]"
-            : "pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 opacity-0"
+            : "absolute inset-x-0 top-0 flex justify-center gap-[15px] opacity-0"
         }
       />
     </nav>

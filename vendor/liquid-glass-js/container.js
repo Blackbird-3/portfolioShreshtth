@@ -195,12 +195,19 @@ export class Container {
   }
 
   capturePageSnapshot() {
-    console.log('Capturing page snapshot...')
+    const width = window.innerWidth
+    const height = window.innerHeight
     html2canvas(document.body, {
       scale: 1,
+      x: window.scrollX,
+      y: window.scrollY,
+      width,
+      height,
+      windowWidth: width,
+      windowHeight: height,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: null,
+      backgroundColor: '#000000',
       ignoreElements: function (element) {
         // Ignore all glass elements
         return (
@@ -425,7 +432,7 @@ export class Container {
         vec2 textureRefraction = perpendicular * rippleEffect;
         
         vec2 totalRefraction = baseRefraction + cornerRefraction + textureRefraction;
-        textureCoord += totalRefraction;
+        textureCoord += totalRefraction * (containerSize / textureSize);
         
         // Gaussian blur
         vec4 color = vec4(0.0);
