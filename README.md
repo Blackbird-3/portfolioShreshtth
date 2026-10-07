@@ -1,8 +1,8 @@
 # Shreshtth Kumar Agarwaal
 
-A single-page portfolio in the Charlie Le Maignan system. The name is set in Archivo Black, white on black, then black on one red block. Work is three rows under that.
+A single-page portfolio in the Charlie Le Maignan system. The name is Unbounded Black, a wide public stand-in for Druk, at line-height 0.70. It is white on black, then black on one red block. Work names use the same face.
 
-Tokens: obsidian `#000000`, bone white `#ffffff`, ash `#838383` for captions, alarm red `#ed1c24` once. Body is Inter at 19–20px. Credits are IBM Plex Mono.
+Tokens: obsidian `#000000`, bone white `#ffffff`, ash `#838383` for labels, alarm red `#ed1c24` once. Body is Inter at 19–20px. The credit under the red block is Cormorant SC.
 
 ## Run locally
 

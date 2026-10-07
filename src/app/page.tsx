@@ -19,8 +19,8 @@ export default function Home() {
         </h1>
       </section>
 
-      <section className="bg-alarm px-5 pt-[30px] pb-[50px] text-obsidian sm:px-8">
-        <p className="max-w-[24rem] font-mono text-[19px] leading-[1.32]">{site.roleLine}</p>
+      <section className="bg-alarm px-5 pt-6 pb-[50px] text-obsidian sm:px-8">
+        <p className="max-w-[26rem] font-serif text-[19px] leading-[1.3] tracking-[0.05em]">{site.roleLine}</p>
       </section>
 
       <section id="work" className="bg-obsidian text-bone">
@@ -30,19 +30,19 @@ export default function Home() {
         <ol>
           {pieces.map((piece) => (
             <li key={piece.title} className="rule border-b px-5 py-[50px] sm:px-8">
-              <div className="grid items-baseline gap-[15px] md:grid-cols-12">
-                <h3 className="text-[40px] leading-[1.08] font-bold md:col-span-7">{piece.title}</h3>
+              <div className="grid items-end gap-[15px] md:grid-cols-12">
+                <h3 className="work-name md:col-span-7">{piece.title}</h3>
                 {piece.figure ? (
                   <p className="md:col-span-5 md:text-right">
-                    <span className="block text-[40px] leading-[1.08] font-bold">{piece.figure.value}</span>
-                    <span className="mt-2 block font-mono text-[19px] leading-[1.32] text-ash">
+                    <span className="work-name block">{piece.figure.value}</span>
+                    <span className="mt-3 block text-[19px] leading-[1.32] font-bold tracking-[0.04em] uppercase">
                       {piece.figure.label}
                     </span>
                   </p>
                 ) : null}
               </div>
               <p className="mt-[20px] max-w-[40rem] text-[20px] leading-[1.32]">{piece.sentence}</p>
-              <ul className="mt-[15px] flex flex-wrap gap-x-[15px] font-mono text-[19px] leading-[1.32] text-ash">
+              <ul className="mt-[15px] flex flex-wrap gap-x-4 text-[19px] leading-[1.32] tracking-[0.04em] text-ash uppercase">
                 {piece.stack.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -63,7 +63,9 @@ export default function Home() {
                 href={item.href}
                 className={`grid gap-1 px-5 py-5 sm:px-8 md:grid-cols-12 md:items-baseline md:gap-8 ${focusRing}`}
               >
-                <span className="font-mono text-[19px] leading-[1.32] text-ash md:col-span-3">{item.kicker}</span>
+                <span className="text-[19px] leading-[1.32] tracking-[0.04em] text-ash uppercase md:col-span-3">
+                  {item.kicker}
+                </span>
                 <span className="text-[20px] leading-[1.32] underline decoration-1 underline-offset-[3px] md:col-span-9">
                   {item.label}
                 </span>

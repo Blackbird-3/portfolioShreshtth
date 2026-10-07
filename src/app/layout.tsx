@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo_Black, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Cormorant_SC, Inter, Unbounded } from "next/font/google";
 import { SkipLink } from "@/components/skip-link";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -11,17 +11,17 @@ const sans = Inter({
   display: "swap",
 });
 
-const display = Archivo_Black({
+const display = Unbounded({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-archivo",
+  weight: "900",
+  variable: "--font-druk",
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const credit = Cormorant_SC({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-plex",
+  weight: "500",
+  variable: "--font-credit",
   display: "swap",
 });
 
@@ -59,7 +59,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}>
+    <html lang="en" className={`${sans.variable} ${display.variable} ${credit.variable} h-full antialiased`}>
       <body className="min-h-[100dvh] bg-obsidian font-sans text-bone antialiased">
         <SkipLink />
         {children}

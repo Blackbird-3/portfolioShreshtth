@@ -3,8 +3,9 @@
 /*
   Charlie Le Maignan, Refero style 34aa811f.
   Obsidian #000000 canvas, bone #ffffff type, ash #838383 captions only,
-  one alarm-red #ed1c24 detonation. Display is Archivo Black, capped near 220px.
-  Body is Inter 19px. Credits are IBM Plex Mono.
+  one alarm-red #ed1c24 detonation. Display is Unbounded Black, the widest
+  public grotesque next/font can load in place of Druk Wide. Line-height 0.70.
+  Body is Inter 19–20px. The credit under the red block is Cormorant SC.
 */
 
 :root {
@@ -17,8 +18,8 @@
 
 @theme inline {
   --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
-  --font-display: var(--font-archivo), "Archivo Black", Impact, sans-serif;
-  --font-mono: var(--font-plex), "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: var(--font-druk), Unbounded, Impact, sans-serif;
+  --font-serif: var(--font-credit), "Cormorant SC", Palatino, "Palatino Linotype", serif;
   --color-obsidian: var(--obsidian);
   --color-bone: var(--bone-white);
   --color-ash: var(--ash);
@@ -59,16 +60,33 @@ img {
 
 .masthead {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.75rem, 15.2vw, 13.75rem);
-  line-height: 0.82;
-  letter-spacing: -0.05em;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 16.2vw, 16rem);
+  line-height: 0.7;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
+}
+
+@media (min-width: 900px) {
+  .masthead {
+    font-size: min(16.2vw, 16rem);
+    letter-spacing: -0.08em;
+  }
 }
 
 .masthead span {
   display: block;
   white-space: nowrap;
+  margin-left: -0.05em;
+}
+
+.work-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
 }
 
 .rule {
