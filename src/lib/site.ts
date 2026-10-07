@@ -2,8 +2,8 @@
  * Reading this as: a personal portfolio for hiring managers.
  * Charlie Le Maignan on Refero (style 34aa811f) is the system.
  * Obsidian #000000, bone #ffffff, ash #838383 for captions, one alarm red #ed1c24 block.
- * Display: Antonio Bold, the named substitute for Brasparz beside Druk Wide.
- * Used only on the hero, at line-height 0.70. Body: Inter. Credit: Cormorant SC.
+ * Display: Unbounded. The first name runs a per-letter width and weight wave,
+ * the same motion as the CHARLIE wordmark. Body: Inter. Credit: Cormorant SC.
  *
  * Facts come from the career export. Do not add metrics that are not in
  * that export. Do not link https://shreshtth.me.

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Antonio, Cormorant_SC, Inter } from "next/font/google";
+import { Cormorant_SC, Inter, Unbounded } from "next/font/google";
 import { SkipLink } from "@/components/skip-link";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -11,10 +11,9 @@ const sans = Inter({
   display: "swap",
 });
 
-const display = Antonio({
+const display = Unbounded({
   subsets: ["latin"],
-  weight: "700",
-  variable: "--font-antonio",
+  variable: "--font-druk",
   display: "swap",
 });
 
