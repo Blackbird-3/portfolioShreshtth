@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_SC, Inter, Unbounded } from "next/font/google";
+import { Cormorant_Garamond, Cormorant_SC, Inter, Unbounded } from "next/font/google";
 import { SkipLink } from "@/components/skip-link";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -25,18 +25,29 @@ const credit = Cormorant_SC({
   display: "swap",
 });
 
+const editorial = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-editorial-family",
+  display: "swap",
+});
+
 const description = `${site.name}. ${site.roleLine}.`;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shreshtth.dev"),
   title: {
     default: site.name,
     template: `%s | ${site.name}`,
   },
   description,
   authors: [{ name: site.name, url: site.linkedin }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: site.name,
     description,
+    url: "https://shreshtth.dev",
     type: "profile",
   },
   robots: { index: true, follow: true },
@@ -52,14 +63,16 @@ const personJsonLd = {
   "@type": "Person",
   name: site.name,
   email: site.email,
-  telephone: site.phone,
   sameAs: [site.linkedin, site.github],
-  jobTitle: "AI engineer",
+  jobTitle: "AI Research Engineer",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable} ${credit.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${sans.variable} ${display.variable} ${credit.variable} ${editorial.variable} h-full antialiased`}
+    >
       <body className="min-h-[100dvh] bg-obsidian font-sans text-bone antialiased">
         <SkipLink />
         {children}

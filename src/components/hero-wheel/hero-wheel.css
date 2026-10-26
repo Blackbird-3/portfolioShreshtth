@@ -1,0 +1,282 @@
+.hero-wheel {
+  position: relative;
+  height: 100dvh;
+  background: #000;
+  color: #fff;
+}
+
+.hero-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-view {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform-style: preserve-3d;
+  perspective-origin: 50% 50%;
+  pointer-events: none;
+}
+
+.hero-sky {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: #121820;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-sky img,
+.hero-clouds img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  user-select: none;
+}
+
+.wheel-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 168px;
+  height: calc(168px * 16 / 9);
+  margin-left: -84px;
+  margin-top: calc(168px * -16 / 9);
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: pan-y;
+  visibility: hidden;
+  will-change: transform;
+}
+
+.wheel-card:active {
+  cursor: grabbing;
+}
+
+.wheel-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgb(255 255 255 / 0.85);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.wheel-back {
+  display: grid;
+  place-items: center;
+  transform: rotateY(180deg);
+}
+
+.wheel-mark {
+  font-family: var(--font-serif), "Cormorant SC", Palatino, serif;
+  font-size: 5.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+}
+
+.wheel-front .demo-bare {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.15rem 0.85rem;
+  background: #0b0b0d;
+}
+
+.wheel-front .voice-orb {
+  width: 7.35rem;
+  height: 7.35rem;
+}
+
+.wheel-front .rag-chat,
+.wheel-front .score-read {
+  width: 88%;
+}
+
+.wheel-front img,
+.wheel-front video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.wheel-front video {
+  opacity: 0;
+  transition: opacity 400ms linear;
+}
+
+.wheel-front video.is-on {
+  opacity: 1;
+}
+
+.hero-clouds {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 46%;
+  overflow: hidden;
+  background: #d5dde4;
+  transform: translate3d(0, 110%, 0);
+}
+
+.hero-chrome {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 46%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.wheel-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(rgb(28 36 48 / 0.5), rgb(28 36 48 / 0.5)), url("/media/clouds.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: var(--font-display), Unbounded, Impact, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.15rem, 12vw, 5.6rem);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.wheel-name span {
+  display: block;
+  white-space: nowrap;
+}
+
+.wheel-name::after {
+  content: "";
+  height: 2.75rem;
+}
+
+.wheel-progress {
+  position: absolute;
+  z-index: 5;
+  bottom: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.wheel-skip {
+  position: absolute;
+  z-index: 5;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: inline-flex;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  background: #000;
+  padding-inline: 1.25rem;
+  color: #fff;
+  font-size: 19px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wheel-skip:active {
+  transform: translateY(1px);
+}
+
+.wheel-scroll {
+  position: absolute;
+  z-index: 5;
+  bottom: 0.7rem;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transform: translateX(-50%);
+  color: #1a2330;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.wheel-scroll svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: wheel-nudge 1.7s ease-in-out infinite;
+}
+
+@keyframes wheel-nudge {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@media (min-width: 900px) {
+  .wheel-name {
+    letter-spacing: -0.05em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel-front video {
+    transition: none;
+  }
+
+  .wheel-scroll svg {
+    animation: none;
+  }
+}
