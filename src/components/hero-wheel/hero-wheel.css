@@ -76,6 +76,11 @@
   border: 1px solid rgb(255 255 255 / 0.85);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: border-color 180ms ease;
+}
+
+.wheel-card:hover .wheel-face {
+  border-color: var(--color-gold);
 }
 
 .wheel-back {
@@ -220,6 +225,14 @@
   font-size: 19px;
   line-height: 1;
   white-space: nowrap;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.wheel-skip:hover {
+  background: #fff;
+  color: #000;
 }
 
 .wheel-skip:active {
@@ -242,6 +255,14 @@
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.wheel-scroll:hover {
+  color: #000;
+  transform: translateX(-50%) translateY(4px);
 }
 
 .wheel-scroll svg {
@@ -276,7 +297,17 @@
     transition: none;
   }
 
+  .wheel-scroll,
+  .wheel-skip,
+  .wheel-face {
+    transition: none;
+  }
+
   .wheel-scroll svg {
     animation: none;
+  }
+
+  .wheel-scroll:hover {
+    transform: translateX(-50%);
   }
 }

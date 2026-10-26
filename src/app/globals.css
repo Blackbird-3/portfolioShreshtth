@@ -209,6 +209,14 @@ img {
 .panel {
   border: 1px solid rgb(255 255 255 / 0.1);
   background: #101010;
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.panel:hover {
+  border-color: rgb(198 161 91 / 0.55);
+  transform: translateY(-3px);
 }
 
 .chip {
@@ -232,6 +240,11 @@ img {
   font-size: 15px;
   line-height: 1;
   white-space: nowrap;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
 .pill-fill {
@@ -242,6 +255,16 @@ img {
 .pill-line {
   border: 1px solid rgb(255 255 255 / 0.28);
   color: #f3efe6;
+}
+
+.pill-line:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.pill-fill:hover {
+  background: var(--color-gold);
+  transform: translateY(-2px);
 }
 
 .sheet-lead {
@@ -400,6 +423,32 @@ img {
   gap: 0.4rem;
   align-content: start;
   padding-block: 1.15rem;
+  transition: color 180ms ease;
+}
+
+.contact-grid a span:last-child {
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-grid a:hover .sheet-kicker,
+.contact-grid a:hover span:last-child {
+  color: var(--color-gold);
+}
+
+.contact-grid a:hover span:last-child {
+  transform: translateX(6px);
+}
+
+.entry-copy a,
+.piece-copy a {
+  transition: color 180ms ease;
+}
+
+.entry-copy a:hover,
+.piece-copy a:hover {
+  color: var(--color-gold);
 }
 
 @media (min-width: 900px) {
@@ -609,10 +658,34 @@ img {
     letter-spacing: 0.12em;
     line-height: 1;
     text-transform: uppercase;
+    transition:
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .mobile-more-toggle:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .pill,
+  .panel,
+  .contact-grid a,
+  .contact-grid a span,
+  .entry-copy a,
+  .piece-copy a,
+  .mobile-more-toggle {
+    transition: none;
+  }
+
+  .pill-fill:hover,
+  .panel:hover,
+  .contact-grid a:hover span:last-child {
+    transform: none;
+  }
+
   .voice-orb::before,
   .voice-orb span,
   .rag-msg,

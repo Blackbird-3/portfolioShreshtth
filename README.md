@@ -1,25 +1,52 @@
-# Shreshtth Kumar Agarwaal
+<p align="center">
+  <img src="src/app/icon.svg" width="48" alt=""/>
+</p>
+<h1 align="center">
+  shreshtth.dev
+</h1>
+<p align="center">
+  The personal site of Shreshtth Kumar Agarwaal, an AI research engineer and master's student in Amberg, built with Next.js and React.
+  <a href="https://shreshtth.dev">shreshtth.dev</a>
+</p>
+<p align="center">
+  <img src="readme/view.jpg" width="100%" alt="shreshtth.dev"/>
+</p>
 
-A single-page portfolio in the Charlie Le Maignan system. The name is Unbounded Black, a wide public stand-in for Druk, at line-height 0.70. It is white on black, then black on one red block. Work names use the same face.
+## 🛠 set-up
 
-Tokens: obsidian `#000000`, bone white `#ffffff`, ash `#838383` for labels, alarm red `#ed1c24` once. Body is Inter at 19–20px. The credit under the red block is Cormorant SC.
+1. Install the dependencies
 
-## Run locally
+   ```sh
+   npm install
+   ```
 
-```bash
-npm install
-npm run dev
-```
+2. Start the development server
 
-Open [http://localhost:3000](http://localhost:3000).
+   ```sh
+   npm run dev
+   ```
 
-```bash
-npm run build
-npm start
-```
+## 🚀 build and run for production
 
-## Edit the facts
+1. Generate the production build
 
-Public copy lives in `src/lib/site.ts`. The only figures are 35% shorter call handling, latency under 500 ms, and 20,000+ chest X-rays. EduQuery has no recorded percentage, so none is shown.
+   ```sh
+   npm run build
+   ```
 
-Do not link to shreshtth.me.
+2. Start it
+
+   ```sh
+   npm start
+   ```
+
+## 🎨 color codes
+
+| Color    | Hex                                                                |
+| -------- | ------------------------------------------------------------------ |
+| Obsidian | ![#000000](https://placehold.co/15/000000/000000.png) `#000000`    |
+| Canvas   | ![#070707](https://placehold.co/15/070707/070707.png) `#070707`    |
+| Bone     | ![#ffffff](https://placehold.co/15/ffffff/ffffff.png) `#ffffff`    |
+| Ash      | ![#838383](https://placehold.co/15/838383/838383.png) `#838383`    |
+| Gold     | ![#c6a15b](https://placehold.co/15/c6a15b/c6a15b.png) `#c6a15b`    |
+| Alarm    | ![#ed1c24](https://placehold.co/15/ed1c24/ed1c24.png) `#ed1c24`    |
