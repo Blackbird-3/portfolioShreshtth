@@ -1,9 +1,10 @@
 import { HeroWheel } from "@/components/hero-wheel/hero-wheel";
 import { MobileMore } from "@/components/mobile-more";
 import { ProjectDemo } from "@/components/project-demos";
+import { SideNav } from "@/components/side-nav";
 import { TechnicalToolkit } from "@/components/technical-toolkit";
 import { focusRing } from "@/lib/styles";
-import { contact, education, nav, otherProjects, pieces, roles, site } from "@/lib/site";
+import { contact, education, otherProjects, pieces, roles } from "@/lib/site";
 
 const linkClass = `underline decoration-1 underline-offset-[3px] ${focusRing}`;
 
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main id="content">
       <HeroWheel />
+      <SideNav />
 
       <div className="below">
         <section id="about" className="sheet scroll-mt-8">
@@ -42,16 +44,6 @@ export default function Home() {
                   </div>
                 </MobileMore>
               </div>
-              <nav aria-label="Sections" className="sheet-actions">
-                {nav.map((item) => (
-                  <a key={item.href} href={item.href} className={`pill pill-line ${focusRing}`}>
-                    {item.label}
-                  </a>
-                ))}
-                <a href={site.cv} className={`pill pill-fill ${focusRing}`}>
-                  CV
-                </a>
-              </nav>
             </div>
           </div>
         </section>
@@ -194,7 +186,7 @@ export default function Home() {
               <li key={item.kicker}>
                 <a href={item.href} className={focusRing}>
                   <span className="sheet-kicker">{item.kicker}</span>
-                  <span className="text-[18px] break-all">{item.label} →</span>
+                  <span className="text-[18px]">{item.label} →</span>
                 </a>
               </li>
             ))}

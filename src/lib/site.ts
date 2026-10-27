@@ -18,6 +18,7 @@ export const nav = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
   { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
@@ -167,7 +168,7 @@ export const education = [
     degree: "M.Sc. Artificial Intelligence for Industrial Applications",
     school: "OTH Amberg-Weiden",
     place: "Amberg, Germany",
-    dates: "March 2026 – March 2028",
+    dates: "March 2026 – Present",
   },
   {
     id: "bmu",
