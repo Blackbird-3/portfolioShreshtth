@@ -17,7 +17,15 @@ const scoreRows = [
 export function ProjectDemo({ id, bare = false }: { id: string; bare?: boolean }) {
   return (
     <div className={bare ? "demo-bare" : "demo-stage"} aria-hidden="true">
-      {id === "ai-call-automation" ? <VoiceOrb /> : id === "eduquery" ? <RagChat /> : <ScoreRead />}
+      {id === "ai-call-automation" ? (
+        <VoiceOrb />
+      ) : id === "eduquery" ? (
+        <RagChat />
+      ) : id === "nao-helperbot" ? (
+        <NaoReply />
+      ) : (
+        <ScoreRead />
+      )}
     </div>
   );
 }
@@ -42,6 +50,21 @@ function RagChat() {
           style={{ width: message.width, animationDelay: message.delay }}
         />
       ))}
+    </div>
+  );
+}
+
+function NaoReply() {
+  return (
+    <div className="nao-reply">
+      <span className="nao-head">
+        <span className="nao-ear" />
+        <span className="nao-ear" />
+      </span>
+      <span className="nao-states">
+        <span className="nao-state nao-state-yes" />
+        <span className="nao-state nao-state-no" />
+      </span>
     </div>
   );
 }

@@ -87,6 +87,25 @@ export const pieces: Piece[] = [
     ],
     steps: ["Documents", "Chunks", "Embeddings", "Pinecone", "Flask", "Answer"],
   },
+  {
+    id: "nao-helperbot",
+    title: "NAO HelperBot",
+    cover: "/media/clouds.jpg",
+    kicker: "Robotics · Apr 2026 – Jun 2026",
+    sentence:
+      "A physical NAO robot speaks a medication reminder, then reads the spoken reply as confirmed or denied.",
+    stack: ["NAOqi", "Choregraphe", "Whisper", "Llama 3.3", "SQLite", "Streamlit"],
+    problem:
+      "Home-care medication reminders are passive notifications. Someone still has to say whether the reminder was acknowledged, and someone else has to write that down.",
+    built:
+      "I ran the workflow on a physical NAO with Choregraphe and the NAOqi Python API. The robot records the reply, a Python backend sends the audio to Groq Whisper Large V3, and Llama 3.3 70B classifies the answer. The exchange is logged for a caregiver.",
+    decisions: [
+      "The first version ran in Webots. The same workflow then moved onto the physical robot.",
+      "A spoken reply is classified as confirmed or denied, and the robot can ask again.",
+      "Each exchange is stored in SQLite and shown on a Streamlit dashboard.",
+    ],
+    steps: ["NAO", "Record", "Whisper", "Llama 3.3", "SQLite"],
+  },
 ];
 
 export type Role = {

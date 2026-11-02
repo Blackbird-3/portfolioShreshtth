@@ -714,6 +714,54 @@ img {
   background: rgb(246 241 228 / 0.45);
 }
 
+.nao-reply {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.nao-head {
+  display: flex;
+  width: 4.6rem;
+  height: 5.1rem;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 1.35rem;
+  padding-inline: 0.35rem;
+}
+
+.nao-ear {
+  width: 0.42rem;
+  height: 1.7rem;
+  border-radius: 99px;
+  background: var(--color-gold);
+}
+
+.nao-states {
+  display: grid;
+  width: min(100%, 11rem);
+  gap: 0.55rem;
+}
+
+.nao-state {
+  height: 8px;
+  border-radius: 99px;
+  transform-origin: left center;
+  animation: nao-state 3.2s ease-in-out infinite;
+}
+
+.nao-state-yes {
+  background: #e0b56a;
+}
+
+.nao-state-no {
+  background: rgb(246 241 228 / 0.38);
+  animation-delay: 1.6s;
+}
+
 @keyframes orb-pulse {
   from {
     opacity: 0.45;
@@ -764,6 +812,20 @@ img {
   45%,
   70% {
     transform: scaleX(1);
+  }
+}
+
+@keyframes nao-state {
+  0%,
+  100% {
+    transform: scaleX(0.28);
+    opacity: 0.4;
+  }
+
+  35%,
+  62% {
+    transform: scaleX(1);
+    opacity: 1;
   }
 }
 
@@ -824,7 +886,8 @@ img {
   .voice-orb::before,
   .voice-orb span,
   .rag-msg,
-  .score-fill {
+  .score-fill,
+  .nao-state {
     animation: none;
   }
 
@@ -833,7 +896,8 @@ img {
   }
 
   .rag-msg,
-  .score-fill {
+  .score-fill,
+  .nao-state {
     opacity: 1;
     transform: none;
   }

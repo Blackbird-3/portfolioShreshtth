@@ -113,8 +113,14 @@
 }
 
 .wheel-front .rag-chat,
-.wheel-front .score-read {
+.wheel-front .score-read,
+.wheel-front .nao-reply {
   width: 88%;
+}
+
+.wheel-front .nao-head {
+  width: 3.4rem;
+  height: 3.8rem;
 }
 
 .wheel-front img,
